@@ -4,6 +4,13 @@ import javafx.scene.layout.Pane;
 import motion.DisplayObject;
 import motion.Vector2D;
 
+
+/**
+ * Base class for all static objects.
+ * Not much to do: Only implement the update(double elapsedSeconds) to relocate the StaticObject
+ * @author Nguyen Minh Tu
+ *
+ */
 public abstract class StaticObject extends DisplayObject {
 
 	public StaticObject() {

@@ -21,15 +21,21 @@ import motion.movingobject.MovingObject;
  * MovingObject is the object to be exerted on
  */
 public class Force extends DisplayObject {
-	private String name; // name of force	
-	private MovingObject object;
-	private Vector2D forceVector; //force magnitude
-	
-	//display
+	/** Name of the force to be displayed on screen. Ex: "F", "G", "N", ... */
+	private String name;
 	private Text nameLabel;
+	
+	/** The object this force acts on*/
+	private MovingObject object;
+	
+	/** Force magnitude in Newton (N). Ex (10,5) is force with 10N x-axis and 5N y-axis */
+	private Vector2D forceVector;
+	
+	/** Display arrow of the force*/
 	private Path arrow;
 	
-	private final int DEFAULT_FORCE = 10; //default force is 10 Newton
+	/** Default force is 10 Newton*/
+	private final int DEFAULT_FORCE = 10;
 	
 	/**
 	 * Init the force, but not start yet
@@ -108,12 +114,15 @@ public class Force extends DisplayObject {
 			nameLabel.setY(forceVectorY*LawOneController.SIZE_UNIT + LawOneController.SIZE_UNIT);			
 			nameLabel.setVisible(true);
 		} else {
+			//if force if (0,0), then hide the nameLabel from scene
 			nameLabel.setVisible(false);
 		}	
 	}
 	
 	/**
-	 * Re-add those elements to arrow
+	 * Draw an arrow once. This function is called every frame.
+	 * The update() function would delete the current arrow this.arrow, then re-draw it using this function
+	 * @return add elements to this.arrow from scratch
 	 */
 	private void drawArrow(double startX, double startY, double endX, double endY) {
 		this.arrow.strokeProperty().bind(this.arrow.fillProperty());
@@ -138,25 +147,31 @@ public class Force extends DisplayObject {
         this.arrow.getElements().add(new LineTo(x2, y2));
         this.arrow.getElements().add(new LineTo(endX, endY));
 	}
-
+	
+	/**
+	 * This function overrides this abstract method createView() of displayObject.
+	 * The function initializes this.view. A force's this.view will contain
+	 * 1. A name label of force (F,G,N,P,...) displayed on screen. The label is stored in this.nameLabel
+	 * 2. An arrow displayed on screen.
+	 */
 	@Override
 	public Node createView() {
-		// TODO create arrow & name
 		Pane container = new Pane();
 		//fix the coordinate of container
 		Text original = new Text(0,0,"");
 		container.getChildren().add(original);
 		
-		//add text
-		nameLabel = new Text();				
-		nameLabel.setText(this.getName());
-		nameLabel.setVisible(false);
-		container.getChildren().add(nameLabel);
+		//1. add name label
+		this.nameLabel = new Text();				
+		this.nameLabel.setText(this.getName());
+		this.nameLabel.setVisible(false);
+		container.getChildren().add(this.nameLabel);
 		
-		//add arrow		
+		//2. add arrow		
 		arrow = new Path();
 		container.getChildren().add(arrow);
 		
+		//3. relocate the object
 		container.relocate(this.object.getX(), this.object.getY());
 		return container;
 	}	

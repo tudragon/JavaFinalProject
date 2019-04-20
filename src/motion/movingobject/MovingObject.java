@@ -5,18 +5,23 @@ import java.util.List;
 
 import javafx.scene.layout.Pane;
 import motion.DisplayObject;
+import motion.Force;
 import motion.Vector2D;
 
 /**
- * Parent class of all objects in Panes (Circle, Sprite, Static)
+ * Parent class of all objects in Panes (Circle, Sprite)
  * @author A
  *
  */
 public abstract class MovingObject extends DisplayObject {
 	protected Vector2D velocity;
 	protected Vector2D acceleration;
+	
+	/** Every moving object must have a mass (so that forces can act on it)*/
 	protected double mass;
-	protected List<Vector2D> forces = new ArrayList<Vector2D>(); //list of forces acting on this object
+	
+	/** The list of forces acting on this object in real-time. Used to calculate acceleration every frame. */
+	protected List<Vector2D> forces = new ArrayList<Vector2D>();
 	
 	public MovingObject() {
 		
@@ -61,21 +66,24 @@ public abstract class MovingObject extends DisplayObject {
 	/**
 	 * Re-calculate location, velocity and acceleration every frame
 	 * @param elapsedSeconds seconds pass by the current frame
+	 * 1. a = sum(F)/m
+	 * 2. v' = v + at
+	 * 3. x' = x + at
 	 */
 	@Override
 	public void update(double elapsedSeconds) {
-		// a = F/m - recalculate acceleration every frame
+		//1. a = F/m - recalculate acceleration every frame
 		Vector2D acceleration = new Vector2D(0, 0);
 		
 		for (Vector2D forceVector : forces) {
-			acceleration.add(forceVector);
+			acceleration.add(forceVector.divideVector(this.mass));
 		}
 		
 		this.setAcceleration(acceleration);
 		
-		//v' = v + at
+		//2. v' = v + at
 		this.getVelocity().add(this.getAcceleration().multiplyVector(elapsedSeconds));
-		//x' = x + vt
+		//3. x' = x + vt
 		this.getLocation().add(this.getVelocity().multiplyVector(elapsedSeconds));
 		
 		this.view.relocate(this.getX(), this.getY());
@@ -84,10 +92,20 @@ public abstract class MovingObject extends DisplayObject {
 			//	+ "  Acce: " + this.getAcceleration());
 	}
 	
+	/**
+	 * Add a forceVector to this object's force. Only need the forceVector, don't need to track the whole {@link Force} class object
+	 * @param forceVector a {@link Vector2D}. Found in {@link Force}.forceVector
+	 * This function is called only in Force(Pane parentPane, double x, double y, MovingObject object, String name)
+	 */
 	public void addForce(Vector2D forceVector) {
 		this.forces.add(forceVector);
 	}
 	
+	/**
+	 * Remove force from this object's force
+	 * @param forceVector a {@link Vector2D}. Found in {@link Force}.forceVector
+	 * @return true if successfully. false if not
+	 */
 	public boolean removeForce(Vector2D forceVector) {
 		
 		//find forceVector among forces

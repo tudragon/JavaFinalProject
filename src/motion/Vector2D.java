@@ -1,7 +1,7 @@
 package motion;
 
 /**
- * A double pair (x,y). Used to represent: location, velocity, acceleration and force
+ * A double pair (x,y). Used to represent: location, velocity, acceleration and force magnitude
  * @author Nguyen Minh Tu
  *
  */
@@ -33,15 +33,6 @@ public class Vector2D {
 		this.x -= v.x;
 		this.y -= v.y;		
 	}
-
-    /**
-     * Multiply vector by a scalar amount
-     * @param n
-     */
-    public void multiply(double n) {
-        x *= n;
-        y *= n;
-    }
     
     /**
      * Multiply vector by a scalar amount
@@ -51,27 +42,13 @@ public class Vector2D {
         return new Vector2D(this.getX()*n, this.getY()*n);
     }
     
+    
     /**
      * Divide vector by a scalar amount
      * @param n
      */
-    public void divide(double n) {
-        x /= n;
-        y /= n;
-    }
-
-    public void normalize() {
-        double m = magnitude();
-        if (m != 0 && m != 1) {
-            divide(m);
-        }
-    }
-
-    public void limit(double max) {
-        if (magnitude() > max) {
-            normalize();
-            multiply(max);
-        }
+    public Vector2D divideVector(double n) {
+        return new Vector2D(this.getX()/n, this.getY()/n);
     }
 
 	public double getX() {

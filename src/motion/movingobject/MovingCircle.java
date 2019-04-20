@@ -30,7 +30,7 @@ public class MovingCircle extends MovingObject {
 	}
 	
 	/**
-	 * Create view for moving object
+	 * View of this class is a javafx.Circle. Radius is given, and color is WHITE, stroke is BLACK
 	 */
 	@Override
 	public Node createView() {

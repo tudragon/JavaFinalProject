@@ -8,7 +8,7 @@ import motion.Vector2D;
 
 /**
  * A 1x1 block on screen
- * @author A
+ * @author Nguyen Minh Tu
  *
  */
 public class Block extends StaticObject {	
@@ -28,6 +28,9 @@ public class Block extends StaticObject {
 		this.size = size;
 	}
 	
+	/**
+	 * View of this Block would be a rectangle
+	 */
 	@Override
 	public Node createView() {
 		Rectangle rect = new Rectangle(this.getX(), this.getY(), size, size);

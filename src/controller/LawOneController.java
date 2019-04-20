@@ -35,41 +35,46 @@ import motion.staticobject.Block;
  *
  */
 public class LawOneController extends LawSceneController{
-	//Scene Controller Button
+	/** Start Button and START_PAUSE state design pattern*/
 	@FXML
 	private Button lawOneStartPauseButton;
 	private final int START_STATE = 0;
 	private final int PAUSE_STATE = 1;
 	private int startPauseButtonState = 0; //current text in button, default is "Start"
 	
+	/** Speed up and slow down button*/
 	@FXML
 	private Button lawOneSpeedUpButton;
 	
 	@FXML
 	private Button lawOneSlowDownButton;
 	
-	//Canvas with object button
+	/**Canvas with object button*/
 	@FXML
 	private Pane lawOneFirstPane;
 	
 	@FXML
 	private Pane lawOneSecondPane;
 	
-	//two circle
+	/** Two circles in two pane*/
 	private MovingObject circle_object1;
 	private MovingObject circle_object2;
 	
-	//force
+	/** Force acts on circle_object1*/
 	private Force f;
 	
+	/** Display two circles' movement*/
 	@FXML
 	private Label f1,f2,a1,a2,v1,v2;
 	
+	/** Main animation loop*/
 	private AnimationTimer PaneTimer;
+	
+	/** Keep track of all objects on canvass*/
 	private List<DisplayObject> allDisplayObjects = new ArrayList<DisplayObject>();
 	
-	//size unit of objects in panel
-	public static final double SIZE_UNIT = 20; //default tile size if 20	
+	/**size unit of objects in panel. Default is 20 pixels*/
+	public static final double SIZE_UNIT = 20;
 	
 	public LawOneController() {
 
@@ -115,7 +120,7 @@ public class LawOneController extends LawSceneController{
 	}	
 	
 	/**
-	 * Set up a simple clip (circle 2 will not move)
+	 * Set up a simple clip in second Pane (circle 2 will not move)
 	 */
 	private void setupCameraSecondPane() {
 		Rectangle clip = new Rectangle(0,0, 600, 200); 
@@ -123,7 +128,7 @@ public class LawOneController extends LawSceneController{
 	}
 
 	/**
-	 * Set up a camera that will follow the circle object
+	 * Set up a camera that will follow the circle object in first Pane
 	 */
 	private void setupCameraFirstPane() {
 		Rectangle clip = new Rectangle(0,0, 600, 200); 
@@ -135,9 +140,15 @@ public class LawOneController extends LawSceneController{
 		//pane.translatex = -clip.x
         lawOneFirstPane.translateXProperty().bind(clip.xProperty().multiply(-1));		
 	}
-
+	
+	/**
+	 * This function creates object in the second canvas, including:
+	 * 1. circle_object1 with zero movement
+	 * 2. 1000 blocks
+	 * 3. A force acting on object 1, in order to give it acceleration
+	 */
 	private void initFirstPane() {
-		// create object data
+		// create  circle 1
         Vector2D location = new Vector2D(SIZE_UNIT,SIZE_UNIT);
         Vector2D velocity = new Vector2D(0,0);
         Vector2D acceleration = new Vector2D(0,0);
@@ -163,9 +174,14 @@ public class LawOneController extends LawSceneController{
 		}
         
 	}	
-
+	
+	/**
+	 * This function creates object in the second canvas, including:
+	 * 1. circle_object2 with zero movement
+	 * 2. 1000 blocks
+	 */
 	private void initSecondPane() {
-		// create object data
+		// create circle 2
         Vector2D location = new Vector2D(SIZE_UNIT,SIZE_UNIT);
         Vector2D velocity = new Vector2D(0,0);
         Vector2D acceleration = new Vector2D( 0,0);
@@ -188,21 +204,19 @@ public class LawOneController extends LawSceneController{
 	 * @param elapsedSeconds seconds passed in this particular frame
 	 */
 	private void updatePane(double elapsedSeconds) {
-		//update display objects
+		//update all display objects
 		for (DisplayObject displayObject : allDisplayObjects) {
 			displayObject.update(elapsedSeconds);
 		}		
 		
-		//update label
-		f1.setText("F = " + f.getForceVector());
-		f2.setText("F = (0,0)");
-		v1.setText("v = " + circle_object1.getVelocity());
-		v2.setText("v = " + circle_object2.getVelocity());
-		a1.setText("a = " + circle_object1.getAcceleration());
-		a2.setText("a = " + circle_object2.getAcceleration());
+		//update force, velocity, acceleration of two objects on screen
+		this.f1.setText("F = " + f.getForceVector());
+		this.f2.setText("F = (0,0)");
+		this.v1.setText("v = " + circle_object1.getVelocity());
+		this.v2.setText("v = " + circle_object2.getVelocity());
+		this.a1.setText("a = " + circle_object1.getAcceleration());
+		this.a2.setText("a = " + circle_object2.getAcceleration());
 		
-		//update camera
-		//lawOneFirstPane.setTranslateX(1d);
 	}
 
 
