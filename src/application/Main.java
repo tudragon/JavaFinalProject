@@ -14,17 +14,16 @@ import javafx.scene.Scene;
  *
  */
 public class Main extends Application {
+	
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage primaryStage) {		
 		try {
 			//1. Load scene
 			Parent lawOneScene = FXMLLoader.load(getClass().getResource("../fxScene/law1scene.fxml"));
-			Parent lawTwoScene = FXMLLoader.load(getClass().getResource("../fxScene/law2scene.fxml"));
-			Parent lawThreeScene = FXMLLoader.load(getClass().getResource("../fxScene/law3scene.fxml"));
 			
 			//2. Set scene manually. Need to change that
-			primaryStage.setTitle("Newton Third Law");
-            primaryStage.setScene(new Scene(lawThreeScene));
+			primaryStage.setTitle("Newton First Law");
+            primaryStage.setScene(new Scene(lawOneScene));
             
 			primaryStage.show();
 		} catch(Exception e) {
@@ -35,4 +34,5 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+	
 }

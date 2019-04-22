@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -13,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LawTwoController">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LawTwoController">
    <children>
       <VBox prefHeight="575.0" prefWidth="771.0">
          <children>
@@ -173,7 +179,7 @@
       </VBox>
       <HBox prefHeight="61.0" prefWidth="771.0">
          <children>
-            <Button id="nextSceneButton" fx:id="previousSceneButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="56.0" prefWidth="56.0">
+            <Button id="nextSceneButton" fx:id="previousLawButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#previousLaw" prefHeight="56.0" prefWidth="56.0">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>
@@ -186,7 +192,7 @@
                </graphic>
 				
             </Button>
-            <Button id="previousSceneButton" fx:id="nextSceneButton" mnemonicParsing="false" prefHeight="56.0" prefWidth="56.0">
+            <Button id="previousSceneButton" fx:id="nextLawButton" mnemonicParsing="false" onAction="#nextLaw" prefHeight="56.0" prefWidth="56.0">
                <HBox.margin>
                   <Insets left="650.0" />
                   
