@@ -49,7 +49,7 @@ public class LawOneController extends LawSceneController{
 	@FXML
 	private Button lawOneSlowDownButton;
 	
-	/**Canvas with object button*/
+	/**Canvas with object Pane*/
 	@FXML
 	private Pane lawOneFirstPane;
 	
@@ -66,58 +66,28 @@ public class LawOneController extends LawSceneController{
 	/** Display two circles' movement*/
 	@FXML
 	private Label f1,f2,a1,a2,v1,v2;
-	
-	/** Main animation loop*/
-	private AnimationTimer PaneTimer;
-	
-	/** Keep track of all objects on canvass*/
-	private List<DisplayObject> allDisplayObjects = new ArrayList<DisplayObject>();
-	
-	/**size unit of objects in panel. Default is 20 pixels*/
-	public static final double SIZE_UNIT = 20;
+
 	
 	public LawOneController() {
 
 	}
-
+	/**
+	 * Implement abstract method of parent class. Set up two camera in two panes
+	 */
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		//add UI Elements
+	protected void setupCameraPane() {
+		setupCameraFirstPane();			
+		setupCameraSecondPane();
+	}
+	
+	/** 
+	 * Implement abstract method of parent class. Initialize UI elements in two panes
+	 */
+	@Override
+	protected void initPane() {
 		initFirstPane();
 		initSecondPane();
-		
-		//create view & add all display objects to its parentPane
-		for (DisplayObject displayObject : allDisplayObjects) {
-			displayObject.addToPane();
-		}
-		
-		//set up camera
-		setupCameraFirstPane();			
-		setupCameraSecondPane();	
-		        
-		//initialize the timer (not start it yet)
-		PaneTimer = new AnimationTimer() {
-			private long lastUpdate = -1 ;
-			
-			@Override
-				public void handle(long now) {
-					//calculate seconds of this frame
-					long elapsedNanos = now - lastUpdate ;
-					if (lastUpdate < 0) {
-						lastUpdate = now ;
-						return ;
-					}	
-					double elapsedSeconds = elapsedNanos / 1_000_000_000.0;
-					
-					//pass to function
-					updatePane(elapsedSeconds);
-					
-					lastUpdate = now ;					
-					}
-		};
-		
-		
-	}	
+	}
 	
 	/**
 	 * Set up a simple clip in second Pane (circle 2 will not move)
@@ -199,15 +169,10 @@ public class LawOneController extends LawSceneController{
 		}		
 	}
 	
-	/**
-	 * Update objects every frame
-	 * @param elapsedSeconds seconds passed in this particular frame
-	 */
-	private void updatePane(double elapsedSeconds) {
+	@Override
+	protected void updatePane(double elapsedSeconds) {
 		//update all display objects
-		for (DisplayObject displayObject : allDisplayObjects) {
-			displayObject.update(elapsedSeconds);
-		}		
+		super.updatePane(elapsedSeconds);;	
 		
 		//update force, velocity, acceleration of two objects on screen
 		this.f1.setText("F = " + f.getForceVector());

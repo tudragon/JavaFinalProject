@@ -15,4 +15,16 @@ public class LawThreeController extends LawSceneController {
 
 	}
 
+	@Override
+	protected void setupCameraPane() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void initPane() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

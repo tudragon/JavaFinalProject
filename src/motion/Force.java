@@ -2,6 +2,7 @@ package motion;
 
 
 import controller.LawOneController;
+import controller.LawSceneController;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -105,13 +106,13 @@ public class Force extends DisplayObject {
 		//only draw if force != 0
 		if((forceVectorX != 0) || (forceVectorY != 0)) {
 			//update arrow
-			drawArrow(LawOneController.SIZE_UNIT,LawOneController.SIZE_UNIT, 
-					forceVectorX*LawOneController.SIZE_UNIT + LawOneController.SIZE_UNIT,
-					forceVectorY*LawOneController.SIZE_UNIT + LawOneController.SIZE_UNIT);
+			drawArrow(LawSceneController.SIZE_UNIT,LawSceneController.SIZE_UNIT, 
+					forceVectorX*LawSceneController.SIZE_UNIT + LawSceneController.SIZE_UNIT,
+					forceVectorY*LawSceneController.SIZE_UNIT + LawSceneController.SIZE_UNIT);
 			
 			//update label
-			nameLabel.setX(forceVectorX*LawOneController.SIZE_UNIT + LawOneController.SIZE_UNIT);
-			nameLabel.setY(forceVectorY*LawOneController.SIZE_UNIT + LawOneController.SIZE_UNIT);			
+			nameLabel.setX(forceVectorX*LawSceneController.SIZE_UNIT + LawSceneController.SIZE_UNIT);
+			nameLabel.setY(forceVectorY*LawSceneController.SIZE_UNIT + LawSceneController.SIZE_UNIT);			
 			nameLabel.setVisible(true);
 		} else {
 			//if force if (0,0), then hide the nameLabel from scene
@@ -137,11 +138,11 @@ public class Force extends DisplayObject {
         double sin = Math.sin(angle);
         double cos = Math.cos(angle);
         //point1
-        double x1 = (- 1.0 / 2.0 * cos + Math.sqrt(3) / 2 * sin) * LawOneController.SIZE_UNIT/2 + endX;
-        double y1 = (- 1.0 / 2.0 * sin - Math.sqrt(3) / 2 * cos) * LawOneController.SIZE_UNIT/2 + endY;
+        double x1 = (- 1.0 / 2.0 * cos + Math.sqrt(3) / 2 * sin) * LawSceneController.SIZE_UNIT/2 + endX;
+        double y1 = (- 1.0 / 2.0 * sin - Math.sqrt(3) / 2 * cos) * LawSceneController.SIZE_UNIT/2 + endY;
         //point2
-        double x2 = (1.0 / 2.0 * cos + Math.sqrt(3) / 2 * sin) * LawOneController.SIZE_UNIT/2 + endX;
-        double y2 = (1.0 / 2.0 * sin - Math.sqrt(3) / 2 * cos) * LawOneController.SIZE_UNIT/2 + endY;
+        double x2 = (1.0 / 2.0 * cos + Math.sqrt(3) / 2 * sin) * LawSceneController.SIZE_UNIT/2 + endX;
+        double y2 = (1.0 / 2.0 * sin - Math.sqrt(3) / 2 * cos) * LawSceneController.SIZE_UNIT/2 + endY;
         
         this.arrow.getElements().add(new LineTo(x1, y1));
         this.arrow.getElements().add(new LineTo(x2, y2));
