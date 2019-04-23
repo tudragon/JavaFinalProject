@@ -34,13 +34,17 @@ public class MovingCircle extends MovingObject {
 	 */
 	@Override
 	public Node createView() {
-
+		//create view
         Circle circle = new Circle(this.radius);
 
         circle.relocate(this.getX(), this.getY());
 
         circle.setStroke(Color.BLACK);
         circle.setFill(Color.WHITE);
+        
+        //set width, height
+        this.setWidth(radius*2);
+        this.setHeight(radius*2);
         
         return circle;
 	}

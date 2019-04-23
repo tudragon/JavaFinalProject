@@ -151,7 +151,7 @@
                <children>
                   <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="554.0">
                      <children>
-                        <Button fx:id="startPauseButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#startPauseBtnClick" prefHeight="38.0" prefWidth="78.0" text="START">
+                        <Button fx:id="startPauseButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#startPauseBtnClick" prefHeight="38.0" prefWidth="205.0" text="START">
                            <HBox.margin>
                               <Insets left="10.0" top="10.0" />
                            </HBox.margin>
@@ -159,17 +159,17 @@
                               <Font size="16.0" />
                            </font>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="38.0" prefWidth="78.0" text="Fx2">
+                        <Button fx:id="lawTwoForceEngineUp" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#forceEngineUpClick" prefHeight="38.0" prefWidth="237.0" text="F_engine ++">
                            <HBox.margin>
-                              <Insets left="150.0" top="10.0" />
+                              <Insets left="100.0" top="10.0" />
                            </HBox.margin>
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="38.0" prefWidth="78.0" text="F/2">
+                        <Button fx:id="lawTwoForceEngineDown" alignment="CENTER" mnemonicParsing="false" onAction="#forceEngineDownClick" prefHeight="38.0" prefWidth="231.0" text="F_engine --">
                            <HBox.margin>
-                              <Insets left="150.0" top="10.0" />
+                              <Insets left="100.0" top="10.0" />
                            </HBox.margin>
                            <font>
                               <Font size="16.0" />

@@ -84,6 +84,10 @@ public class Truck extends MovingObject {
 		//relocate the container
 		container.relocate(this.getX(), this.getY());
 		
+		//set width, height - depend on how the object is drawn
+		this.setWidth(3 * LawSceneController.SIZE_UNIT);
+		this.setHeight(3 * LawSceneController.SIZE_UNIT);
+		
 		return container;
 	}
 	

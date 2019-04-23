@@ -39,9 +39,13 @@ public class Block extends StaticObject {
 	 */
 	@Override
 	public Node createView() {
+		//create rectangle view
 		Rectangle rect = new Rectangle(this.getX(), this.getY(), size, size);
 		rect.setFill(Color.WHITE);
 		rect.setStroke(Color.BLACK);
+		//set width, height
+		this.setWidth(size);
+		this.setHeight(size);
 		return rect;
 	}
 

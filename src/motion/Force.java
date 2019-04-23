@@ -24,7 +24,8 @@ import motion.movingobject.MovingObject;
 public class Force extends DisplayObject {
 	/** Name of the force to be displayed on screen. Ex: "F", "G", "N", ... */
 	private String name;
-	private Text nameLabel;
+	private Text nameLabel; //javafx.Text object
+	private double relativeXofTextToForce = 0.5; //how the force's name is being displayed
 	
 	/** The object this force acts on*/
 	private MovingObject object;
@@ -91,6 +92,14 @@ public class Force extends DisplayObject {
 		this.forceVector = forceVector;
 	}
 
+	public double getRelativeXofTextToForce() {
+		return relativeXofTextToForce;
+	}
+
+	public void setRelativeXofTextToForce(double relativeXofTextToForce) {
+		this.relativeXofTextToForce = relativeXofTextToForce;
+	}
+
 	@Override
 	public void update(double elapsedSeconds) {
 		//bound this.location to object.location
@@ -99,18 +108,23 @@ public class Force extends DisplayObject {
 		//clear arrow
 		arrow.getElements().clear();
 		
+		//redraw arrow
 		double forceVectorX = this.forceVector.getX();
 		double forceVectorY = this.forceVector.getY();
-		//only draw if force != 0
+		
+		//only draw if force != (0,0)
 		if((forceVectorX != 0) || (forceVectorY != 0)) {
 			//update arrow
-			drawArrow(0*LawSceneController.SIZE_UNIT, 0*LawSceneController.SIZE_UNIT, 
-					forceVectorX*LawSceneController.SIZE_UNIT + 0*LawSceneController.SIZE_UNIT,
-					forceVectorY*LawSceneController.SIZE_UNIT + 0*LawSceneController.SIZE_UNIT);
+			double startX = object.getWidth()/2; //start at the center of object
+			double startY = object.getHeight()/2;
+			double endX = startX + forceVectorX*LawSceneController.SIZE_UNIT/2; //end at arrow tip
+			double endY = startY + forceVectorY*LawSceneController.SIZE_UNIT/2;
 			
-			//update label's position: (forceVectorX,forceVectorY) + (1,1)
-			nameLabel.setX(forceVectorX*LawSceneController.SIZE_UNIT + 0*LawSceneController.SIZE_UNIT);
-			nameLabel.setY(forceVectorY*LawSceneController.SIZE_UNIT + 0*LawSceneController.SIZE_UNIT);			
+			drawArrow(startX, startY, endX, endY);
+			
+			//update label's position: 0,5 to the left or right of the force's arrow
+			nameLabel.setX(endX + this.getRelativeXofTextToForce() * LawSceneController.SIZE_UNIT);
+			nameLabel.setY(endY);			
 			nameLabel.setVisible(true);
 		} else {
 			//if force if (0,0), then hide the nameLabel from scene

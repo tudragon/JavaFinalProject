@@ -1,6 +1,8 @@
 package controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
@@ -23,6 +25,13 @@ public class LawTwoController extends LawSceneController {
 	@FXML
 	private Label f,a,v,m;
 	
+	/** F_engine buttons*/
+	@FXML
+	private Button lawTwoForceEngineDown, lawTwoForceEngineUp;
+	
+	/** F_engine*/
+	private Force F_engine;
+	
 	public LawTwoController() {
 	}
 	
@@ -36,7 +45,7 @@ public class LawTwoController extends LawSceneController {
 	@Override
 	protected void initPane() {
 		//create truck
-		truck = new Truck(lawTwoPane, new Vector2D(SIZE_UNIT, SIZE_UNIT*2), 50);
+		truck = new Truck(lawTwoPane, new Vector2D(SIZE_UNIT, SIZE_UNIT*3), 50);
 		truck.setVelocity(new Vector2D(10, 0));
 		allDisplayObjects.add(truck);
 		
@@ -44,15 +53,21 @@ public class LawTwoController extends LawSceneController {
         int numBlocks = 1000;
         
         for (int i = 0; i < numBlocks * SIZE_UNIT; i+= SIZE_UNIT) {
-			DisplayObject block = new Block(lawTwoPane, i, SIZE_UNIT*5, SIZE_UNIT);
+			DisplayObject block = new Block(lawTwoPane, i, SIZE_UNIT*6, SIZE_UNIT);
 			allDisplayObjects.add(block);			
 		}
         
         //Forced created
         Force P = new Force(lawTwoPane, 0, 4, truck, "P");
-        //Force N = new Force(lawTwoPane, 0, -4, truck, "N");
+        Force N = new Force(lawTwoPane, 0, -4, truck, "N");
+        F_engine = new Force(lawTwoPane, 10, 0, truck, "F_engine");
+        Force F_drag = new Force(lawTwoPane, -5, 0, truck, "F_drag"); //drag of atmosphere
+        F_drag.setRelativeXofTextToForce(-3);; // name is displayed backwards 3 * SIZE_UNIT
+        
         allDisplayObjects.add(P);
-        //allDisplayObjects.add(N);
+        allDisplayObjects.add(N);
+        allDisplayObjects.add(F_drag);
+        allDisplayObjects.add(F_engine);
 		
 	}
 	
@@ -70,6 +85,17 @@ public class LawTwoController extends LawSceneController {
 		this.a.setText("a = " + truck.getAcceleration());
 		this.m.setText("m = " + truck.getMass());
 	}
-
+	
+	/** Called when F_engine++ button is clicked */
+	public void forceEngineUpClick(ActionEvent e) {
+		System.out.println("Force engine ++ clicked");
+		F_engine.speedUp();
+	}
+	
+	/** Called when F_engine-- button is clicked */
+	public void forceEngineDownClick(ActionEvent e) {
+		System.out.println("Force engine -- clicked");
+		F_engine.slowDown();
+	}
 
 }

@@ -12,7 +12,9 @@ import javafx.scene.layout.Region;
 public abstract class DisplayObject {
 	protected Vector2D location;	
 	protected Node view; //how this region is going to be rendered
-	protected Pane parentPane;
+	protected Pane parentPane; //the parent frame of this object
+	
+	protected double width, height = 0; //width and height of this object
 	
 	public DisplayObject() {
 		
@@ -21,7 +23,7 @@ public abstract class DisplayObject {
 	public DisplayObject(Pane parentPane, Vector2D location) {
 		super();
 		this.location = location;
-		this.parentPane = parentPane;		
+		this.parentPane = parentPane;	
 	}	
 	
 	public DisplayObject(Pane parentPane, double x, double y) {
@@ -83,6 +85,22 @@ public abstract class DisplayObject {
 
 	public void setView(Node view) {
 		this.view = view;
+	}
+
+	public double getWidth() {
+		return width;
+	}
+
+	public void setWidth(double width) {
+		this.width = width;
+	}
+
+	public double getHeight() {
+		return height;
+	}
+
+	public void setHeight(double height) {
+		this.height = height;
 	}
 	
 	
