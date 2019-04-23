@@ -96,8 +96,6 @@ public class Force extends DisplayObject {
 		//bound this.location to object.location
 		this.view.relocate(this.object.getX(), this.object.getY());
 		
-		
-		
 		//clear arrow
 		arrow.getElements().clear();
 		
@@ -106,13 +104,13 @@ public class Force extends DisplayObject {
 		//only draw if force != 0
 		if((forceVectorX != 0) || (forceVectorY != 0)) {
 			//update arrow
-			drawArrow(LawSceneController.SIZE_UNIT,LawSceneController.SIZE_UNIT, 
-					forceVectorX*LawSceneController.SIZE_UNIT + LawSceneController.SIZE_UNIT,
-					forceVectorY*LawSceneController.SIZE_UNIT + LawSceneController.SIZE_UNIT);
+			drawArrow(0*LawSceneController.SIZE_UNIT, 0*LawSceneController.SIZE_UNIT, 
+					forceVectorX*LawSceneController.SIZE_UNIT + 0*LawSceneController.SIZE_UNIT,
+					forceVectorY*LawSceneController.SIZE_UNIT + 0*LawSceneController.SIZE_UNIT);
 			
-			//update label
-			nameLabel.setX(forceVectorX*LawSceneController.SIZE_UNIT + LawSceneController.SIZE_UNIT);
-			nameLabel.setY(forceVectorY*LawSceneController.SIZE_UNIT + LawSceneController.SIZE_UNIT);			
+			//update label's position: (forceVectorX,forceVectorY) + (1,1)
+			nameLabel.setX(forceVectorX*LawSceneController.SIZE_UNIT + 0*LawSceneController.SIZE_UNIT);
+			nameLabel.setY(forceVectorY*LawSceneController.SIZE_UNIT + 0*LawSceneController.SIZE_UNIT);			
 			nameLabel.setVisible(true);
 		} else {
 			//if force if (0,0), then hide the nameLabel from scene

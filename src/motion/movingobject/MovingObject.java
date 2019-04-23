@@ -28,7 +28,7 @@ public abstract class MovingObject extends DisplayObject {
 	}		
 	
 	/**
-	 * Init by vector location and mass
+	 * Init by vector location and mass, zero velocity and acceleration
 	 * @param location
 	 * @param mass
 	 */
@@ -88,8 +88,8 @@ public abstract class MovingObject extends DisplayObject {
 		
 		this.view.relocate(this.getX(), this.getY());
 		
-		//System.out.println("Location: " + this.getLocation() + "  Velo: " + this.getVelocity()
-			//	+ "  Acce: " + this.getAcceleration());
+//		System.out.println("Location: " + this.getLocation() + "  Velo: " + this.getVelocity()
+//				+ "  Acce: " + this.getAcceleration());
 	}
 	
 	/**
@@ -118,6 +118,17 @@ public abstract class MovingObject extends DisplayObject {
 			forces.remove(index);			
 			return true;
 		}
+	}
+	
+	/** Get the net Force on the moving object*/
+	public Vector2D getSumForceVector() {
+		Vector2D result = new Vector2D(0, 0);
+		
+		for (Vector2D forceVector : forces) {
+			result.add(forceVector);
+		}
+		
+		return result;
 	}
 	
 	public Vector2D getVelocity() {

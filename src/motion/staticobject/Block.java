@@ -22,7 +22,13 @@ public class Block extends StaticObject {
 		super(parentPane, location);
 		this.size = size;
 	}
-	
+	/**
+	 * Create a block
+	 * @param parentPane the frame that contains this block
+	 * @param x x-position of the block
+	 * @param y y-position of the block
+	 * @param size
+	 */
 	public Block(Pane parentPane, double x, double y, double size) {
 		super(parentPane, x, y);		
 		this.size = size;

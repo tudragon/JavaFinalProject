@@ -99,7 +99,7 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label text="F  = ">
+                        <Label fx:id="f" text="F  = ">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -107,7 +107,7 @@
                               <Insets left="60.0" top="5.0" />
                            </VBox.margin>
                         </Label>
-                        <Label alignment="CENTER" text="v  = ">
+                        <Label fx:id="v" alignment="CENTER" text="v  = ">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -115,7 +115,7 @@
                               <Insets left="60.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="a  = ">
+                        <Label fx:id="a" text="a  = ">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -123,7 +123,7 @@
                               <Insets left="60.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Label text="m = ">
+                        <Label fx:id="m" text="m = ">
                            <VBox.margin>
                               <Insets left="60.0" top="10.0" />
                            </VBox.margin>
@@ -151,7 +151,7 @@
                <children>
                   <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="554.0">
                      <children>
-                        <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="38.0" prefWidth="78.0" text="START">
+                        <Button fx:id="startPauseButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#startPauseBtnClick" prefHeight="38.0" prefWidth="78.0" text="START">
                            <HBox.margin>
                               <Insets left="10.0" top="10.0" />
                            </HBox.margin>

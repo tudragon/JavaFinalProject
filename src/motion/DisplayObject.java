@@ -52,7 +52,7 @@ public abstract class DisplayObject {
 		//add this node to pane
 		this.parentPane.getChildren().add(this.view);
 	}
-
+	
 	public Vector2D getLocation() {
 		return location;
 	}

@@ -38,7 +38,7 @@
                         <Image url="@../../images/newton.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="lawOneStartPauseButton" mnemonicParsing="false" onAction="#lawOneStartStopBtnClick" text="Start" GridPane.rowIndex="1" />
+                  <Button fx:id="startPauseButton" mnemonicParsing="false" onAction="#startPauseBtnClick" text="START" GridPane.rowIndex="1" />
                   <Button fx:id="lawOneSpeedUpButton" mnemonicParsing="false" onAction="#lawOneSpeedUp" text="Speed Up" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Button fx:id="lawOneSlowDownButton" mnemonicParsing="false" onAction="#lawOneSlowDown" text="Slow Down" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <Label prefHeight="129.0" prefWidth="602.0" text="I. CONTENT:&#10;If external force is 0, then the velocity of an object is unchanged:&#10;1) What's static remains static&#10;2) What's moving keeps moving (with same velocity)&#10;&#10;II. VISUALIZATION:" wrapText="true" GridPane.columnSpan="3">

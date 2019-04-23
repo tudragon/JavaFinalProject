@@ -38,11 +38,16 @@ public abstract class LawSceneController implements Initializable {
 	/** Main animation loop*/
 	protected AnimationTimer PaneTimer;
 	
+	/** Previous and next law button*/
 	@FXML
-	private Button previousLawButton;
+	private Button previousLawButton, nextLawButton;
 	
+	/** Start Button and START_PAUSE state design pattern*/
 	@FXML
-	private Button nextLawButton;
+	protected Button startPauseButton;
+	protected final int START_STATE = 0;
+	protected final int PAUSE_STATE = 1;
+	protected int startPauseButtonState = 0; //current text in button, default is "Start"
 	
 	/**
 	 * This function is called first when the controller is called by JavaFx. It will:
@@ -177,6 +182,30 @@ public abstract class LawSceneController implements Initializable {
 		for (DisplayObject displayObject : allDisplayObjects) {
 			displayObject.update(elapsedSeconds);
 		}		
+	}
+	
+	/**
+	 * Click start/pause button. Trigger run method in pane
+	 */
+	public void startPauseBtnClick(ActionEvent e){
+		System.out.println("Start/Stop Clicked");
+		if(startPauseButtonState == START_STATE) {
+			//start AnimationTimer
+			PaneTimer.start();			
+			
+			//change to stop state
+			startPauseButtonState = PAUSE_STATE;
+			startPauseButton.setText("PAUSE");
+		} else if (startPauseButtonState == PAUSE_STATE) {
+			//stop AnimationTimer
+			PaneTimer.stop();
+			
+			//change to start state
+			startPauseButtonState = START_STATE;
+			startPauseButton.setText("START");
+		}
+		
+		
 	}
 
 }

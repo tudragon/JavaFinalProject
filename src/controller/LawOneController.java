@@ -1,27 +1,12 @@
 package controller;
 
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
-
-import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.beans.binding.Bindings;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import javafx.util.Duration;
 import motion.DisplayObject;
 import motion.Force;
 import motion.Vector2D;
@@ -35,12 +20,7 @@ import motion.staticobject.Block;
  *
  */
 public class LawOneController extends LawSceneController{
-	/** Start Button and START_PAUSE state design pattern*/
-	@FXML
-	private Button lawOneStartPauseButton;
-	private final int START_STATE = 0;
-	private final int PAUSE_STATE = 1;
-	private int startPauseButtonState = 0; //current text in button, default is "Start"
+	
 	
 	/** Speed up and slow down button*/
 	@FXML
@@ -169,6 +149,9 @@ public class LawOneController extends LawSceneController{
 		}		
 	}
 	
+	/**
+	 * Update movement as well as label
+	 */
 	@Override
 	protected void updatePane(double elapsedSeconds) {
 		//update all display objects
@@ -186,32 +169,7 @@ public class LawOneController extends LawSceneController{
 
 
 	/**
-	 * Click start button. Trigger run method in both canvas
-	 * @param e
-	 */
-	public void lawOneStartStopBtnClick(ActionEvent e){
-		System.out.println("Start/Stop Clicked");
-		if(startPauseButtonState == START_STATE) {
-			//start AnimationTimer
-			PaneTimer.start();			
-			
-			//change to stop state
-			startPauseButtonState = PAUSE_STATE;
-			lawOneStartPauseButton.setText("Pause");
-		} else if (startPauseButtonState == PAUSE_STATE) {
-			//stop AnimationTimer
-			PaneTimer.stop();
-			
-			//change to start state
-			startPauseButtonState = START_STATE;
-			lawOneStartPauseButton.setText("Start");
-		}
-		
-		
-	}
-
-	/**
-	 * Action listener of "Act Force" button
+	 * Action listener of speed up button
 	 * @param e
 	 */
 	public void lawOneSpeedUp(ActionEvent e){
@@ -222,7 +180,7 @@ public class LawOneController extends LawSceneController{
 	}
 	
 	/**
-	 * Action listener of "Stop Force" button
+	 * Action listener of slow down button
 	 * @param e
 	 */
 	public void lawOneSlowDown(ActionEvent e){
