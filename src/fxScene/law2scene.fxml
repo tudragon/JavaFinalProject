@@ -57,7 +57,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="457.0" text="a = Fnet / m" textAlignment="CENTER" GridPane.columnSpan="3" GridPane.rowIndex="2">
+                  <Label fx:id="lawTwoFormula" alignment="CENTER" prefHeight="72.0" prefWidth="457.0" text="a = Fnet / m" textAlignment="CENTER" GridPane.columnSpan="3" GridPane.rowIndex="2">
                      <font>
                         <Font size="40.0" />
                      </font>

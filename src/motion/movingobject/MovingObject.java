@@ -90,6 +90,8 @@ public abstract class MovingObject extends DisplayObject {
 		
 //		System.out.println("Location: " + this.getLocation() + "  Velo: " + this.getVelocity()
 //				+ "  Acce: " + this.getAcceleration());
+		//System.out.println("Layout X,Y Property: (" + this.getView().getLayoutX() + ", "
+		//		+ this.getView().getLayoutY() + ")");
 	}
 	
 	/**

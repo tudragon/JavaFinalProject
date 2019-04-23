@@ -7,12 +7,12 @@ import motion.movingobject.MovingObject;
 /**
  * This illustrates drag force of atmosphere
  * F = kv^2; k is constant
- * @author A
+ * @author Tu
  *
  */
 public class DragForce extends Force {
 	
-	private static final double k_const = 0.02f;
+	private static final double k_const = 0.015f;
 
 	public DragForce(Pane parentPane, double x, double y, MovingObject object, String name) {
 		super(parentPane, x, y, object, name);

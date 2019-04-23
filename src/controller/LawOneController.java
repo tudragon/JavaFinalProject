@@ -1,6 +1,5 @@
 package controller;
 
-import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -32,6 +31,8 @@ public class LawOneController extends LawSceneController{
 	/**Canvas with object Pane*/
 	@FXML
 	private Pane lawOneFirstPane;
+	
+	private Rectangle clipFirstPane;
 	
 	@FXML
 	private Pane lawOneSecondPane;
@@ -81,14 +82,14 @@ public class LawOneController extends LawSceneController{
 	 * Set up a camera that will follow the circle object in first Pane
 	 */
 	private void setupCameraFirstPane() {
-		Rectangle clip = new Rectangle(0,0, 600, 200); 
+		clipFirstPane = new Rectangle(0,0, 600, 200); 
 
-		//Bind clip to circle's X
-		clip.xProperty().bind(Bindings.add(-2*SIZE_UNIT, circle_object1.getView().layoutXProperty()));
-		lawOneFirstPane.setClip(clip);
+		//Bind clip to circle's X: clip.x = circle.layoutX - 2 * SIZE_UNIT
+		//clipFirstPane.xProperty().bind(Bindings.add(-2*SIZE_UNIT, circle_object1.getView().layoutXProperty()));
+		lawOneFirstPane.setClip(clipFirstPane);
 		
 		//pane.translatex = -clip.x
-        lawOneFirstPane.translateXProperty().bind(clip.xProperty().multiply(-1));		
+        lawOneFirstPane.translateXProperty().bind(clipFirstPane.xProperty().multiply(-1));		
 	}
 	
 	/**
@@ -165,6 +166,18 @@ public class LawOneController extends LawSceneController{
 		this.a1.setText("a = " + circle_object1.getAcceleration());
 		this.a2.setText("a = " + circle_object2.getAcceleration());
 		
+		//update camera first pane
+		double clipX = clipFirstPane.getX();
+		double circleLayoutX = circle_object1.getView().getLayoutX();
+				
+		if( clipX >= circleLayoutX - clip_min *SIZE_UNIT) { //clip starts to go backwards
+			clipFirstPane.setX(
+					(circleLayoutX - clip_min *SIZE_UNIT >= 0)? circleLayoutX - clip_min *SIZE_UNIT : 0
+					);
+					
+		} else if( clipX <= circleLayoutX - clip_max *SIZE_UNIT) { //clip starts to follow
+			clipFirstPane.setX(circleLayoutX - clip_max *SIZE_UNIT);
+		}
 	}
 
 

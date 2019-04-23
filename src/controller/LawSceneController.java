@@ -38,6 +38,10 @@ public abstract class LawSceneController implements Initializable {
 	/** Main animation loop*/
 	protected AnimationTimer PaneTimer;
 	
+	/** Clip limit: Clip.X belongs to interval [object.X - clip_max, object.x - clip_min]*/
+	protected static final double clip_min = 10.0; //clip starts to catch up backwards
+	protected static final double clip_max = 15.0; //clip starts to follow
+	
 	/** Previous and next law button*/
 	@FXML
 	private Button previousLawButton, nextLawButton;
@@ -45,8 +49,8 @@ public abstract class LawSceneController implements Initializable {
 	/** Start Button and START_PAUSE state design pattern*/
 	@FXML
 	protected Button startPauseButton;
-	protected final int START_STATE = 0;
-	protected final int PAUSE_STATE = 1;
+	protected static final int START_STATE = 0;
+	protected static final int PAUSE_STATE = 1;
 	protected int startPauseButtonState = 0; //current text in button, default is "Start"
 	
 	/**
