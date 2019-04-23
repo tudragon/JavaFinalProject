@@ -5,8 +5,8 @@ import java.util.List;
 
 import javafx.scene.layout.Pane;
 import motion.DisplayObject;
-import motion.Force;
 import motion.Vector2D;
+import motion.force.Force;
 
 /**
  * Parent class of all objects in Panes (Circle, Sprite)
@@ -21,7 +21,7 @@ public abstract class MovingObject extends DisplayObject {
 	protected double mass;
 	
 	/** The list of forces acting on this object in real-time. Used to calculate acceleration every frame. */
-	protected List<Vector2D> forces = new ArrayList<Vector2D>();
+	protected List<Force> forces = new ArrayList<Force>();
 	
 	public MovingObject() {
 		
@@ -72,11 +72,11 @@ public abstract class MovingObject extends DisplayObject {
 	 */
 	@Override
 	public void update(double elapsedSeconds) {
-		//1. a = F/m - recalculate acceleration every frame
+		//1. a = sum(F)/m - recalculate acceleration every frame
 		Vector2D acceleration = new Vector2D(0, 0);
 		
-		for (Vector2D forceVector : forces) {
-			acceleration.add(forceVector.divideVector(this.mass));
+		for (Force force : forces) {
+			acceleration.add(force.getForceVector().divideVector(this.mass));
 		}
 		
 		this.setAcceleration(acceleration);
@@ -97,19 +97,19 @@ public abstract class MovingObject extends DisplayObject {
 	 * @param forceVector a {@link Vector2D}. Found in {@link Force}.forceVector
 	 * This function is called only in Force(Pane parentPane, double x, double y, MovingObject object, String name)
 	 */
-	public void addForce(Vector2D forceVector) {
-		this.forces.add(forceVector);
+	public void addForce(Force force) {
+		this.forces.add(force);
 	}
 	
 	/**
 	 * Remove force from this object's force
-	 * @param forceVector a {@link Vector2D}. Found in {@link Force}.forceVector
+	 * @param forceVector a {@link Force}
 	 * @return true if successfully. false if not
 	 */
-	public boolean removeForce(Vector2D forceVector) {
+	public boolean removeForce(Force force) {
 		
 		//find forceVector among forces
-		int index = forces.indexOf(forceVector);
+		int index = forces.indexOf(force);
 		
 		if(index == -1) {
 			//not found			
@@ -124,8 +124,8 @@ public abstract class MovingObject extends DisplayObject {
 	public Vector2D getSumForceVector() {
 		Vector2D result = new Vector2D(0, 0);
 		
-		for (Vector2D forceVector : forces) {
-			result.add(forceVector);
+		for (Force force: forces) {
+			result.add(force.getForceVector());
 		}
 		
 		return result;

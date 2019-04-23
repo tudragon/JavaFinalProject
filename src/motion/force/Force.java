@@ -1,4 +1,4 @@
-package motion;
+package motion.force;
 
 
 import controller.LawOneController;
@@ -13,10 +13,12 @@ import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
+import motion.DisplayObject;
+import motion.Vector2D;
 import motion.movingobject.MovingObject;
 
 /**
- * Force is a simple Vector2D
+ * Force contains a simple Vector2D
  * @author Nguyen Minh Tu
  * x,y is its magnitude in Newton
  * MovingObject is the object to be exerted on
@@ -52,7 +54,7 @@ public class Force extends DisplayObject {
 		this.forceVector = new Vector2D(x, y);
 		this.object = object;				
 		this.name = name;
-		this.object.addForce(forceVector);
+		this.object.addForce(this);
 	}
 	
 	/**
@@ -105,6 +107,8 @@ public class Force extends DisplayObject {
 		//bound this.location to object.location
 		this.view.relocate(this.object.getX(), this.object.getY());
 		
+		updateForceVector(elapsedSeconds);
+		
 		//clear arrow
 		arrow.getElements().clear();
 		
@@ -132,6 +136,10 @@ public class Force extends DisplayObject {
 		}	
 	}
 	
+	/** Meant to be overridden by subclasses*/
+	protected void updateForceVector(double elapsedSeconds) {
+	}
+
 	/**
 	 * Draw an arrow once. This function is called every frame.
 	 * The update() function would delete the current arrow this.arrow, then re-draw it using this function
@@ -188,5 +196,19 @@ public class Force extends DisplayObject {
 		container.relocate(this.object.getX(), this.object.getY());
 		return container;
 	}	
+	
+	/**
+	 * Check if two forces are equal in magnitude
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if(this == obj) return true;
+		//check class
+		if(this.getClass() != obj.getClass()) return false;
+		//same class force
+		Force force = (Force) obj;
+		return (this.getForceVector().equals(force.getForceVector())) 
+				&& (this.getName().equals(force.getName()) );
+	}
 
 }

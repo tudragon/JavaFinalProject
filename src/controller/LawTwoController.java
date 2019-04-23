@@ -7,8 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import motion.DisplayObject;
-import motion.Force;
 import motion.Vector2D;
+import motion.force.DragForce;
+import motion.force.Force;
 import motion.movingobject.Truck;
 import motion.movingobject.MovingObject;
 import motion.staticobject.Block;
@@ -61,7 +62,7 @@ public class LawTwoController extends LawSceneController {
         Force P = new Force(lawTwoPane, 0, 4, truck, "P");
         Force N = new Force(lawTwoPane, 0, -4, truck, "N");
         F_engine = new Force(lawTwoPane, 10, 0, truck, "F_engine");
-        Force F_drag = new Force(lawTwoPane, -5, 0, truck, "F_drag"); //drag of atmosphere
+        Force F_drag = new DragForce(lawTwoPane, -5, 0, truck, "F_drag"); //drag of atmosphere
         F_drag.setRelativeXofTextToForce(-3);; // name is displayed backwards 3 * SIZE_UNIT
         
         allDisplayObjects.add(P);
