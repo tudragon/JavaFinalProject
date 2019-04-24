@@ -9,9 +9,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import motion.DisplayObject;
+import motion.Vector2D;
 import motion.force.Force;
 import motion.movingobject.MovingObject;
+import motion.movingobject.Rocket;
 import motion.staticobject.Block;
+import motion.staticobject.RocketBase;
+import motion.staticobject.StaticObject;
 
 public class LawThreeController extends LawSceneController {
 	/**Canvas with object Pane*/
@@ -61,6 +65,15 @@ public class LawThreeController extends LawSceneController {
 			allDisplayObjects.add(block);			
 		}
 		
+        //rocket launcher
+        StaticObject rocket_base = new RocketBase(lawThreePane, 13 * SIZE_UNIT, 
+        		offset * SIZE_UNIT - 6 * SIZE_UNIT);
+        //rocket
+        MovingObject rocket = new Rocket(lawThreePane, 14 * SIZE_UNIT,
+        		offset * SIZE_UNIT - 6 * SIZE_UNIT, 10);
+        
+        allDisplayObjects.add(rocket_base);
+        allDisplayObjects.add(rocket);
 	}
 
 }

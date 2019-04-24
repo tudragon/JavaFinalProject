@@ -146,8 +146,8 @@ public class Force extends DisplayObject {
 	 * @return add elements to this.arrow from scratch
 	 */
 	private void drawArrow(double startX, double startY, double endX, double endY) {
-		this.arrow.strokeProperty().bind(this.arrow.fillProperty());
 		this.arrow.setFill(Color.BLACK);
+		this.arrow.setStroke(Color.BLACK);
         
         //Line
 		this.arrow.getElements().add(new MoveTo(startX, startY));
