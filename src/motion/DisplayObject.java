@@ -17,15 +17,18 @@ public abstract class DisplayObject {
 	protected double width, height = 0; //width and height of this object
 	
 	public DisplayObject() {
-		
+		this.setInitWidthHeight();
 	}		
 		
 	public DisplayObject(Pane parentPane, Vector2D location) {
 		super();
 		this.location = location;
-		this.parentPane = parentPane;	
+		this.parentPane = parentPane;
+		this.setInitWidthHeight();
 	}	
 	
+
+
 	public DisplayObject(Pane parentPane, double x, double y) {
 		this(parentPane, new Vector2D(x, y));	
 	}
@@ -54,6 +57,9 @@ public abstract class DisplayObject {
 		//add this node to pane
 		this.parentPane.getChildren().add(this.view);
 	}
+	
+	/** Set initial width and height of display object if possible*/
+	protected abstract void setInitWidthHeight();
 	
 	public Vector2D getLocation() {
 		return location;

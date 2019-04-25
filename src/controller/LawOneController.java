@@ -105,7 +105,7 @@ public class LawOneController extends LawSceneController{
         Vector2D acceleration = new Vector2D(0,0);
         
         circle_object1 = new MovingCircle(lawOneFirstPane, 
-        		location, velocity, acceleration, 1, SIZE_UNIT);
+        		location, velocity, acceleration, 1);
         allDisplayObjects.add(circle_object1);
         
         f = new Force(lawOneFirstPane, 0, 0, circle_object1, "F");
@@ -120,7 +120,7 @@ public class LawOneController extends LawSceneController{
         int numBlocks = 1000;
         
         for (int i = 0; i < numBlocks * SIZE_UNIT; i+= SIZE_UNIT) {
-			DisplayObject block = new Block(lawOneFirstPane, i, SIZE_UNIT*3, SIZE_UNIT);
+			DisplayObject block = new Block(lawOneFirstPane, i, SIZE_UNIT*3);
 			allDisplayObjects.add(block);			
 		}
         
@@ -138,14 +138,14 @@ public class LawOneController extends LawSceneController{
         Vector2D acceleration = new Vector2D( 0,0);
         
         circle_object2 = new MovingCircle(lawOneSecondPane, 
-        		location, velocity, acceleration, 1, SIZE_UNIT);
+        		location, velocity, acceleration, 1);
         allDisplayObjects.add(circle_object2);  
                 
         //create blocks
         int numBlocks = 1000;
         
         for (int i = 0; i < numBlocks * SIZE_UNIT; i+= SIZE_UNIT) {
-			DisplayObject block = new Block(lawOneSecondPane, i, SIZE_UNIT*3, SIZE_UNIT);
+			DisplayObject block = new Block(lawOneSecondPane,  i, SIZE_UNIT*3);
 			allDisplayObjects.add(block);			
 		}		
 	}
@@ -156,7 +156,11 @@ public class LawOneController extends LawSceneController{
 	@Override
 	protected void updatePane(double elapsedSeconds) {
 		//update all display objects
-		super.updatePane(elapsedSeconds);;	
+		super.updatePane(elapsedSeconds);
+		
+		//DEBUG: force location relative to circle location
+		//System.out.println("Circle: (" + this.circle_object1.getX() + ", " + this.circle_object1.getY() + ")");
+		//System.out.println("Circle dimension: (" + this.circle_object1.getWidth() + ", " + this.circle_object1.getHeight() + ")");
 		
 		//update force, velocity, acceleration of two objects on screen
 		this.f1.setText("F = " + f.getForceVector());

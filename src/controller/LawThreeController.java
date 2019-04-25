@@ -53,27 +53,35 @@ public class LawThreeController extends LawSceneController {
 		//create blocks: 
         int numHorizontalBlocks = 50 ;
         int numVerticalBlocks = 1000;
-        int offset = 12; //block on bottom left has (x,y) = (12*SIZE_UNIT,0)
+        int offsetY = 12; //block on bottom left has (x,y) = (0,12) * SIZE_UNIT
         
         for (int i = 0; i < numHorizontalBlocks * SIZE_UNIT; i+= SIZE_UNIT) {
-			DisplayObject block = new Block(lawThreePane, i, SIZE_UNIT*offset, SIZE_UNIT);
+			DisplayObject block = new Block(lawThreePane, i, SIZE_UNIT*offsetY);
 			allDisplayObjects.add(block);			
 		}
         
         for (int i = 0; i < numVerticalBlocks * SIZE_UNIT; i+= SIZE_UNIT) {
-			DisplayObject block = new Block(lawThreePane, 0, -i + offset * SIZE_UNIT, SIZE_UNIT);
+			DisplayObject block = new Block(lawThreePane, 0, -i + offsetY * SIZE_UNIT);
 			allDisplayObjects.add(block);			
 		}
 		
-        //rocket launcher
+        //rocket base
         StaticObject rocket_base = new RocketBase(lawThreePane, 13 * SIZE_UNIT, 
-        		offset * SIZE_UNIT - 6 * SIZE_UNIT);
+        		offsetY * SIZE_UNIT - 6 * SIZE_UNIT);
         //rocket
         MovingObject rocket = new Rocket(lawThreePane, 14 * SIZE_UNIT,
-        		offset * SIZE_UNIT - 6 * SIZE_UNIT, 10);
+        		offsetY * SIZE_UNIT - 6 * SIZE_UNIT, 10);
         
         allDisplayObjects.add(rocket_base);
         allDisplayObjects.add(rocket);
+        
+        /**
+         * TODO: 
+         * 1. Create Gas as MovingObject. Bind Gas.Y to Rocket.Y-Rocket.Height
+         * 2. Create force P1, P2. P1 is on Rocket and P2 is on Earth (another moving object?)
+         * 3. Create N on Rocket. N - P1 + Fgas = ma => N's forceVector changes in real-time
+         */
+        
 	}
 
 }

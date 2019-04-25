@@ -68,13 +68,17 @@ public class LawTwoController extends LawSceneController {
         int numBlocks = 1000;
         
         for (int i = 0; i < numBlocks * SIZE_UNIT; i+= SIZE_UNIT) {
-			DisplayObject block = new Block(lawTwoPane, i, SIZE_UNIT*6, SIZE_UNIT);
+			DisplayObject block = new Block(lawTwoPane, i, SIZE_UNIT*6);
 			allDisplayObjects.add(block);			
 		}
         
         //Forced created
-        Force P = new Force(lawTwoPane, 0, 4, truck, "P");
-        Force N = new Force(lawTwoPane, 0, -4, truck, "N");
+        Force P = new Force(lawTwoPane, 0, 8, truck, "P");
+        Force N = new Force(lawTwoPane, 0, -8, truck, "N");
+        //DEBUG: 
+        //System.out.println("Truck width: " + truck.getWidth() + " height: " + truck.getHeight());
+        N.setRelativePositionOfForceToObject(SIZE_UNIT * -1, truck.getHeight()/2); //test move N down
+        
         F_engine = new Force(lawTwoPane, 10, 0, truck, "F_engine");
         Force F_drag = new DragForce(lawTwoPane, -5, 0, truck, "F_drag"); //drag of atmosphere
         F_drag.setRelativeXofTextToForce(-3);; // name is displayed backwards 3 * SIZE_UNIT

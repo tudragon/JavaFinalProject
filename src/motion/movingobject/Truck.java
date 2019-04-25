@@ -10,21 +10,22 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
 import motion.Vector2D;
 
-public class Truck extends MovingObject {
-
+public class Truck extends MovingObject {	
+	
 	public Truck() {
 	}
 
 	public Truck(Pane parentPane, Vector2D location, double mass) {
-		super(parentPane, location, mass);
+		super(parentPane, location, mass);		
 	}
 
 	public Truck(Pane parentPane, double x, double y, double mass) {
-		super(parentPane, x, y, mass);
+		super(parentPane, x, y, mass);		
 	}
 
 	public Truck(Pane parentPane, Vector2D location, Vector2D velocity, Vector2D acceleration, double mass) {
 		super(parentPane, location, velocity, acceleration, mass);
+		
 	}
 	
 	/**
@@ -82,11 +83,7 @@ public class Truck extends MovingObject {
 		container.getChildren().add(back_wheel);
 		
 		//relocate the container
-		container.relocate(this.getX(), this.getY());
-		
-		//set width, height - depend on how the object is drawn
-		this.setWidth(3 * LawSceneController.SIZE_UNIT);
-		this.setHeight(3 * LawSceneController.SIZE_UNIT);
+		container.relocate(this.getX(), this.getY());        
 		
 		return container;
 	}
@@ -103,6 +100,13 @@ public class Truck extends MovingObject {
 			output[i] = multiplier[i] * LawSceneController.SIZE_UNIT;
 		}
 		return output;
+	}
+
+	@Override
+	protected void setInitWidthHeight() {
+		//set width, height - depend on how the object is drawn
+		this.width = 3 * LawSceneController.SIZE_UNIT;
+		this.height = 3 * LawSceneController.SIZE_UNIT;
 	}
 
 }

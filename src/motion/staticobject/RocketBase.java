@@ -50,10 +50,6 @@ public class RocketBase extends StaticObject {
 		//relocate path to location
 		path.relocate(this.getX(), this.getY());
 		
-		//set width, height
-		this.setWidth(5 * LawSceneController.SIZE_UNIT);
-		this.setHeight(6 * LawSceneController.SIZE_UNIT);
-		
 		return path;
 	}
 	
@@ -74,5 +70,11 @@ public class RocketBase extends StaticObject {
 		path.getElements().add(moveTo); 
 		path.getElements().add(lineTo);
 	}
-
+	
+	@Override
+	protected void setInitWidthHeight() {
+		//set width, height
+		this.setWidth(5 * LawSceneController.SIZE_UNIT);
+		this.setHeight(6 * LawSceneController.SIZE_UNIT);			
+	}
 }

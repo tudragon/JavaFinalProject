@@ -1,5 +1,6 @@
 package motion.staticobject;
 
+import controller.LawSceneController;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -12,15 +13,14 @@ import motion.Vector2D;
  *
  */
 public class Block extends StaticObject {	
-	private double size;
+	private static double size = LawSceneController.SIZE_UNIT;
 
 	public Block() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Block(Pane parentPane, Vector2D location, double size) {
+	public Block(Pane parentPane, Vector2D location) {
 		super(parentPane, location);
-		this.size = size;
 	}
 	/**
 	 * Create a block
@@ -29,9 +29,8 @@ public class Block extends StaticObject {
 	 * @param y y-position of the block
 	 * @param size
 	 */
-	public Block(Pane parentPane, double x, double y, double size) {
+	public Block(Pane parentPane, double x, double y) {
 		super(parentPane, x, y);		
-		this.size = size;
 	}
 	
 	/**
@@ -44,9 +43,14 @@ public class Block extends StaticObject {
 		rect.setFill(Color.WHITE);
 		rect.setStroke(Color.BLACK);
 		//set width, height
+		
+		return rect;
+	}
+
+	@Override
+	protected void setInitWidthHeight() {
 		this.setWidth(size);
 		this.setHeight(size);
-		return rect;
 	}
 
 }

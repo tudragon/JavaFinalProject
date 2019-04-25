@@ -59,7 +59,8 @@ public class Rocket extends MovingObject {
 		//multiple by SIZE_UNIT and add to Polygon
 		body_rec.getPoints().addAll(multiplyDoubelArray(body_rec_raw));
 		
-		body_rec.setFill(Color.BLACK);
+		body_rec.setFill(Color.WHITE);
+		body_rec.setStroke(Color.BLACK);
 		container.getChildren().add(body_rec);
 		
 		//3. the trapezoid base of the rocket
@@ -75,10 +76,6 @@ public class Rocket extends MovingObject {
 		
 		trap_base.setFill(Color.RED);
 		container.getChildren().add(trap_base);
-		
-		//set width, height - depend on how the object is drawn
-		this.setWidth(3 * LawSceneController.SIZE_UNIT);
-		this.setHeight(5 * LawSceneController.SIZE_UNIT);
 		
 		//relocate the container
 		container.relocate(this.getX(), this.getY());				
@@ -98,5 +95,12 @@ public class Rocket extends MovingObject {
 			output[i] = multiplier[i] * LawSceneController.SIZE_UNIT;
 		}
 		return output;
+	}
+
+	@Override
+	protected void setInitWidthHeight() {
+		//set width, height - depend on how the object is drawn
+		this.setWidth(3 * LawSceneController.SIZE_UNIT);
+		this.setHeight(5 * LawSceneController.SIZE_UNIT);				
 	}
 }

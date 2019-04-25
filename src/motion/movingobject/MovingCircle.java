@@ -1,5 +1,6 @@
 package motion.movingobject;
 
+import controller.LawSceneController;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -8,25 +9,22 @@ import motion.Vector2D;
 
 public class MovingCircle extends MovingObject {
 	
-	private double radius;
+	private static double radius = LawSceneController.SIZE_UNIT;
 
 	public MovingCircle() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MovingCircle(Pane parentPane, Vector2D location, double mass,double radius) {
+	public MovingCircle(Pane parentPane, Vector2D location, double mass) {
 		super(parentPane, location, mass);		
-		this.radius = radius;
 	}
 
-	public MovingCircle(Pane parentPane, double x, double y, double mass,double radius) {
+	public MovingCircle(Pane parentPane, double x, double y, double mass) {
 		super(parentPane, x, y, mass);
-		this.radius = radius;
 	}
 
-	public MovingCircle(Pane parentPane, Vector2D location, Vector2D velocity, Vector2D acceleration, double mass,double radius) {
+	public MovingCircle(Pane parentPane, Vector2D location, Vector2D velocity, Vector2D acceleration, double mass) {
 		super(parentPane, location, velocity, acceleration, mass);		
-		this.radius = radius;
 	}
 	
 	/**
@@ -35,18 +33,20 @@ public class MovingCircle extends MovingObject {
 	@Override
 	public Node createView() {
 		//create view
-        Circle circle = new Circle(this.radius);
+        Circle circle = new Circle(radius);
 
         circle.relocate(this.getX(), this.getY());
 
         circle.setStroke(Color.BLACK);
         circle.setFill(Color.WHITE);
-        
-        //set width, height
+        return circle;
+	}
+
+	@Override
+	protected void setInitWidthHeight() {
+		//set width, height
         this.setWidth(radius*2);
         this.setHeight(radius*2);
-        
-        return circle;
 	}
 	
 

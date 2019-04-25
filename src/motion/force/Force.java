@@ -35,6 +35,11 @@ public class Force extends DisplayObject {
 	/** Force magnitude in Newton (N). Ex (10,5) is force with 10N x-axis and 5N y-axis */
 	private Vector2D forceVector;
 	
+	/** Relative position of this.view to object's position. 
+	 * (0,0) means force start at object's center*/
+	private double relativeXofForceToObject = 0.0;
+	private double relativeYofForceToObject = 0.0;
+	
 	/** Display arrow of the force*/
 	private Path arrow;
 	
@@ -101,11 +106,22 @@ public class Force extends DisplayObject {
 	public void setRelativeXofTextToForce(double relativeXofTextToForce) {
 		this.relativeXofTextToForce = relativeXofTextToForce;
 	}
+	/**
+	 * Where this.view will be rendered compared to this.object.view
+	 * @param relativeX
+	 * @param relativeY
+	 */
+	public void setRelativePositionOfForceToObject(double relativeX, double relativeY) {
+		this.relativeXofForceToObject = relativeX;
+		this.relativeYofForceToObject = relativeY;
+	}
 
 	@Override
 	public void update(double elapsedSeconds) {
 		//bound this.location to object.location
-		this.view.relocate(this.object.getX(), this.object.getY());
+		this.view.relocate(
+				this.object.getX() + this.relativeXofForceToObject, 
+				this.object.getY() + this.relativeYofForceToObject);
 		
 		updateForceVector(elapsedSeconds);
 		
@@ -125,6 +141,9 @@ public class Force extends DisplayObject {
 			double endY = startY + forceVectorY*LawSceneController.SIZE_UNIT/2;
 			
 			drawArrow(startX, startY, endX, endY);
+			
+			//DEBUG: arrow location
+			//System.out.println("Force arrow "+this.name+" : ("+startX+","+startY+") -> ("+endX+","+endY+")");
 			
 			//update label's position: 0,5 to the left or right of the force's arrow
 			nameLabel.setX(endX + this.getRelativeXofTextToForce() * LawSceneController.SIZE_UNIT);
@@ -193,7 +212,8 @@ public class Force extends DisplayObject {
 		container.getChildren().add(arrow);
 		
 		//3. relocate the object
-		container.relocate(this.object.getX(), this.object.getY());
+		container.relocate(this.object.getX() + this.relativeXofForceToObject, 
+				this.object.getY() + this.relativeYofForceToObject);
 		return container;
 	}	
 	
@@ -209,6 +229,11 @@ public class Force extends DisplayObject {
 		Force force = (Force) obj;
 		return (this.getForceVector().equals(force.getForceVector())) 
 				&& (this.getName().equals(force.getName()) );
+	}
+
+	@Override
+	protected void setInitWidthHeight() {
+		//force has no width/height
 	}
 
 }
