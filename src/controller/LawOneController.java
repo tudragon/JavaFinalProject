@@ -175,13 +175,13 @@ public class LawOneController extends LawSceneController{
 		double clipX = clipFirstPane.getX();
 		double circleLayoutX = circle_object1.getView().getLayoutX();
 				
-		if( clipX >= circleLayoutX - clip_min *Utility.SIZE_UNIT) { //clip starts to go backwards
+		if( clipX >= circleLayoutX - clip_min_x *Utility.SIZE_UNIT) { //clip starts to go backwards
 			clipFirstPane.setX(
-					(circleLayoutX - clip_min *Utility.SIZE_UNIT >= 0)? circleLayoutX - clip_min *Utility.SIZE_UNIT : 0
+					(circleLayoutX - clip_min_x *Utility.SIZE_UNIT >= 0)? circleLayoutX - clip_min_x *Utility.SIZE_UNIT : 0
 					);
 					
-		} else if( clipX <= circleLayoutX - clip_max *Utility.SIZE_UNIT) { //clip starts to follow
-			clipFirstPane.setX(circleLayoutX - clip_max *Utility.SIZE_UNIT);
+		} else if( clipX <= circleLayoutX - clip_max_x *Utility.SIZE_UNIT) { //clip starts to follow
+			clipFirstPane.setX(circleLayoutX - clip_max_x *Utility.SIZE_UNIT);
 		}
 	}
 

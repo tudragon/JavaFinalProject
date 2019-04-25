@@ -36,7 +36,7 @@ public class LawThreeController extends LawSceneController {
 	private Button lawThreeBurnMoreGas, lawThreeBurnLessGas;
 	
 	/** Forces*/
-	private Force F_rocket,F_gas, P1, P2;
+	private Force F_rocket,F_gas, P1, P2, N;
 
 	
 	public LawThreeController() {
@@ -47,6 +47,9 @@ public class LawThreeController extends LawSceneController {
 		clip = new Rectangle(0,0, 520, 260);
 		lawThreePane.setClip(clip);
 		
+		//Move camera: pane.translatey = -clip.y
+        lawThreePane.translateYProperty().bind(clip.yProperty().multiply(-1));
+        	
 	}
 
 	@Override
@@ -92,7 +95,7 @@ public class LawThreeController extends LawSceneController {
         
         //Force
         P1 = new Force(lawThreePane, 0, 10, rocket, "P1");
-        Force N = new Force(lawThreePane, 0, -10, rocket, "N");
+        N = new Force(lawThreePane, 0, -10, rocket, "N");
         N.setRelativePositionOfForceToObject(Utility.SIZE_UNIT, rocket.getHeight()/2);
         
         P2 = new Force(lawThreePane, 0, -10, earth, "P2");
@@ -121,19 +124,48 @@ public class LawThreeController extends LawSceneController {
 		this.v.setText("v = " + rocket.getVelocity());		
 		this.a.setText("a = " + rocket.getAcceleration());		
 		this.f_net.setText("Fnet = " + rocket.getSumForceVector());
+		
+		//update clip
+		double clipY = clip.getY();
+		double rocketLayoutY = rocket.getView().getLayoutY();
+		
+		//DEBUG Camera
+		//System.out.println("clipY: " + clipY + " rocketLayoutY: " + rocketLayoutY);
+				
+		if( clipY >= rocketLayoutY - clip_min_y *Utility.SIZE_UNIT) { //clip starts to go backwards
+			clip.setY(
+					(rocketLayoutY - clip_min_y *Utility.SIZE_UNIT <= 0)? rocketLayoutY - clip_min_y *Utility.SIZE_UNIT : 0
+					);
+			
+		} else if( clipY <= rocketLayoutY - clip_max_y *Utility.SIZE_UNIT) { //clip starts to follow
+			clip.setY(rocketLayoutY - clip_max_y *Utility.SIZE_UNIT);
+		}
+		
+		//update force N: N - P1 + F_rocket = 0. If F_rocket > P1 => rocket flies => N=0
+		double difference = F_rocket.getForceVector().getY() + P1.getForceVector().getY();
+		if(difference <= 0) {
+			N.getForceVector().set(0, 0);
+		} else {
+			//N.getForceVector().set(0, -difference);
+		}
+		//DEBUG: force vector of N
+		//System.out.println("Force vector N: (" + N.getForceVector().getX() + ","+ N.getForceVector().getY()+"). Difference: " + difference);
 	}
 	
 	/** Called when burnMoreGas button is clicked*/
 	public void burnMoreGasBtnClick(ActionEvent e) {
-		System.out.println("More Gas");
+		System.out.println("F_gas is now: (0, "  +F_gas.getForceVector().getY() + "). More Gas");
 		F_rocket.getForceVector().add(new Vector2D(0, -Utility.DEFAULT_FORCE));
 		F_gas.getForceVector().add(new Vector2D(0, Utility.DEFAULT_FORCE));
 	}
 	
 	/** Called when burnLessGas button is clicked*/
 	public void burnLessGasBtnClick(ActionEvent e) {
-		System.out.println("Less Gas");
-		F_rocket.getForceVector().add(new Vector2D(0, Utility.DEFAULT_FORCE));
-		F_gas.getForceVector().add(new Vector2D(0, -Utility.DEFAULT_FORCE));
+		System.out.println("F_gas is now: (0, "  +F_gas.getForceVector().getY() + "). Less Gas");
+		if(F_gas.getForceVector().getY() > 0) { //if f_gas is still positive
+			F_rocket.getForceVector().add(new Vector2D(0, Utility.DEFAULT_FORCE));
+			F_gas.getForceVector().add(new Vector2D(0, -Utility.DEFAULT_FORCE));
+		}
+		
 	}
 }

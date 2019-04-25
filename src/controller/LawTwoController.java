@@ -109,13 +109,13 @@ public class LawTwoController extends LawSceneController {
 		double clipX = clip.getX();
 		double truckLayoutX = truck.getView().getLayoutX();
 		
-		if( clipX >= truckLayoutX - clip_min *Utility.SIZE_UNIT) { //clip starts to go backwards
+		if( clipX >= truckLayoutX - clip_min_x *Utility.SIZE_UNIT) { //clip starts to go backwards
 			clip.setX(
-					(truckLayoutX - clip_min *Utility.SIZE_UNIT >= 0)? truckLayoutX - clip_min *Utility.SIZE_UNIT : 0
+					(truckLayoutX - clip_min_x *Utility.SIZE_UNIT >= 0)? truckLayoutX - clip_min_x *Utility.SIZE_UNIT : 0
 					);
 			
-		} else if( clipX <= truckLayoutX - clip_max *Utility.SIZE_UNIT) { //clip starts to follow
-			clip.setX(truckLayoutX - clip_max *Utility.SIZE_UNIT);
+		} else if( clipX <= truckLayoutX - clip_max_x *Utility.SIZE_UNIT) { //clip starts to follow
+			clip.setX(truckLayoutX - clip_max_x *Utility.SIZE_UNIT);
 		}
 		
 	}
