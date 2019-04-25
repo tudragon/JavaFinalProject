@@ -12,6 +12,7 @@ import javafx.scene.shape.Rectangle;
 import motion.DisplayObject;
 import motion.Vector2D;
 import motion.force.Force;
+import motion.movingobject.Earth;
 import motion.movingobject.MovingObject;
 import motion.movingobject.Rocket;
 import motion.staticobject.Block;
@@ -82,14 +83,22 @@ public class LawThreeController extends LawSceneController {
          * 2. Create force P1, P2. P1 is on Rocket and P2 is on Earth (another moving object?)
          * 3. Create N on Rocket. N - P1 + Fgas = ma => N's forceVector changes in real-time
          */
+        //Earth
+        MovingObject earth = new Earth(lawThreePane, (offsetX - 1) * SIZE_UNIT, offsetY * SIZE_UNIT);
         
         //Force
         P1 = new Force(lawThreePane, 0, 10, rocket, "P1");
-        P2 = new Force(lawThreePane, 0, -10, rocket, "P2");
-        F_rocket = new Force(lawThreePane, 0, -2, rocket, "F_rocket");
-        F_gas = new Force(lawThreePane, 0, 2, rocket, "F_gas");
+        Force N = new Force(lawThreePane, 0, -10, rocket, "N");
+        N.setRelativePositionOfForceToObject(SIZE_UNIT, rocket.getHeight()/2);
+        
+        P2 = new Force(lawThreePane, 0, -10, earth, "P2");
+        P2.setRelativeXofTextToForce(-1);
+        
+        F_rocket = new Force(lawThreePane, 0, 0, rocket, "F_rocket");
+        F_gas = new Force(lawThreePane, 0, 0, rocket, "F_gas");
         
         allDisplayObjects.add(P1);
+        allDisplayObjects.add(N);
         allDisplayObjects.add(P2);
         allDisplayObjects.add(F_rocket);
         allDisplayObjects.add(F_gas);
@@ -102,9 +111,9 @@ public class LawThreeController extends LawSceneController {
 		
 		//update label
 		this.p1.setText("P1 = " + this.P1.getForceVector());
-		this.p2.setText("P1 = " + this.P2.getForceVector());
-		this.f_rocket.setText("P1 = " + this.F_rocket.getForceVector());
-		this.f_gas.setText("P1 = " + this.F_gas.getForceVector());
+		this.p2.setText("P2 = " + this.P2.getForceVector());
+		this.f_rocket.setText("F_rocket = " + this.F_rocket.getForceVector());
+		this.f_gas.setText("F_gas = " + this.F_gas.getForceVector());
 		this.v.setText("v = " + rocket.getVelocity());		
 		this.a.setText("a = " + rocket.getAcceleration());		
 		this.f_net.setText("Fnet = " + rocket.getSumForceVector());
@@ -113,10 +122,14 @@ public class LawThreeController extends LawSceneController {
 	/** Called when burnMoreGas button is clicked*/
 	public void burnMoreGasBtnClick(ActionEvent e) {
 		System.out.println("More Gas");
+		F_rocket.getForceVector().add(new Vector2D(0, -Force.DEFAULT_FORCE));
+		F_gas.getForceVector().add(new Vector2D(0, Force.DEFAULT_FORCE));
 	}
 	
 	/** Called when burnLessGas button is clicked*/
 	public void burnLessGasBtnClick(ActionEvent e) {
 		System.out.println("Less Gas");
+		F_rocket.getForceVector().add(new Vector2D(0, Force.DEFAULT_FORCE));
+		F_gas.getForceVector().add(new Vector2D(0, -Force.DEFAULT_FORCE));
 	}
 }

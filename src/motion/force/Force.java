@@ -44,7 +44,7 @@ public class Force extends DisplayObject {
 	private Path arrow;
 	
 	/** Default force is 10 Newton*/
-	private final int DEFAULT_FORCE = 10;
+	public static final int DEFAULT_FORCE = 10;
 	
 	/**
 	 * Init the force, but not start yet

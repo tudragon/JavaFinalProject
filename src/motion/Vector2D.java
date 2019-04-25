@@ -69,7 +69,9 @@ public class Vector2D {
     
 	@Override
 	public String toString() {
-		return String.format("(%.1f;%.1f)", this.getX(), this.getY());
+		//draw coordinate is -1 * y of real coordinate
+		if(this.getY() == 0) return String.format("(%.1f;0,0)", this.getX());
+		return String.format("(%.1f;%.1f)", this.getX(), this.getY() * -1);
 	}    
 	
 	/**
