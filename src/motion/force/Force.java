@@ -1,19 +1,15 @@
 package motion.force;
 
 
-import controller.LawOneController;
-import controller.LawSceneController;
-import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
 import motion.DisplayObject;
+import motion.Utility;
 import motion.Vector2D;
 import motion.movingobject.MovingObject;
 
@@ -43,9 +39,6 @@ public class Force extends DisplayObject {
 	/** Display arrow of the force*/
 	private Path arrow;
 	
-	/** Default force is 10 Newton*/
-	public static final int DEFAULT_FORCE = 10;
-	
 	/**
 	 * Init the force, but not start yet
 	 * @param x magnitude in x-axis (N)
@@ -66,14 +59,14 @@ public class Force extends DisplayObject {
 	 * Add addition force to force vector
 	 */
 	public void speedUp() {
-		this.getForceVector().add(new Vector2D(DEFAULT_FORCE, 0));
+		this.getForceVector().add(new Vector2D(Utility.DEFAULT_FORCE, 0));
 	}
 	
 	/**
 	 * Subtract force from force vector
 	 */
 	public void slowDown() {
-		this.getForceVector().subtract(new Vector2D(DEFAULT_FORCE, 0));
+		this.getForceVector().subtract(new Vector2D(Utility.DEFAULT_FORCE, 0));
 	}
 
 	public MovingObject getObject() {
@@ -137,8 +130,8 @@ public class Force extends DisplayObject {
 			//update arrow
 			double startX = object.getWidth()/2; //start at the center of object
 			double startY = object.getHeight()/2;
-			double endX = startX + forceVectorX*LawSceneController.SIZE_UNIT/2; //end at arrow tip
-			double endY = startY + forceVectorY*LawSceneController.SIZE_UNIT/2;
+			double endX = startX + forceVectorX*Utility.SIZE_UNIT/2; //end at arrow tip
+			double endY = startY + forceVectorY*Utility.SIZE_UNIT/2;
 			
 			drawArrow(startX, startY, endX, endY);
 			
@@ -146,7 +139,7 @@ public class Force extends DisplayObject {
 			//System.out.println("Force arrow "+this.name+" : ("+startX+","+startY+") -> ("+endX+","+endY+")");
 			
 			//update label's position: 0,5 to the left or right of the force's arrow
-			nameLabel.setX(endX + this.getRelativeXofTextToForce() * LawSceneController.SIZE_UNIT);
+			nameLabel.setX(endX + this.getRelativeXofTextToForce() * Utility.SIZE_UNIT);
 			nameLabel.setY(endY);			
 			nameLabel.setVisible(true);
 		} else {
@@ -177,11 +170,11 @@ public class Force extends DisplayObject {
         double sin = Math.sin(angle);
         double cos = Math.cos(angle);
         //point1
-        double x1 = (- 1.0 / 2.0 * cos + Math.sqrt(3) / 2 * sin) * LawSceneController.SIZE_UNIT/2 + endX;
-        double y1 = (- 1.0 / 2.0 * sin - Math.sqrt(3) / 2 * cos) * LawSceneController.SIZE_UNIT/2 + endY;
+        double x1 = (- 1.0 / 2.0 * cos + Math.sqrt(3) / 2 * sin) * Utility.SIZE_UNIT/2 + endX;
+        double y1 = (- 1.0 / 2.0 * sin - Math.sqrt(3) / 2 * cos) * Utility.SIZE_UNIT/2 + endY;
         //point2
-        double x2 = (1.0 / 2.0 * cos + Math.sqrt(3) / 2 * sin) * LawSceneController.SIZE_UNIT/2 + endX;
-        double y2 = (1.0 / 2.0 * sin - Math.sqrt(3) / 2 * cos) * LawSceneController.SIZE_UNIT/2 + endY;
+        double x2 = (1.0 / 2.0 * cos + Math.sqrt(3) / 2 * sin) * Utility.SIZE_UNIT/2 + endX;
+        double y2 = (1.0 / 2.0 * sin - Math.sqrt(3) / 2 * cos) * Utility.SIZE_UNIT/2 + endY;
         
         this.arrow.getElements().add(new LineTo(x1, y1));
         this.arrow.getElements().add(new LineTo(x2, y2));

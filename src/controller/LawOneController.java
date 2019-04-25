@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import motion.DisplayObject;
+import motion.Utility;
 import motion.Vector2D;
 import motion.force.Force;
 import motion.movingobject.MovingCircle;
@@ -100,7 +101,7 @@ public class LawOneController extends LawSceneController{
 	 */
 	private void initFirstPane() {
 		// create  circle 1
-        Vector2D location = new Vector2D(SIZE_UNIT,SIZE_UNIT);
+        Vector2D location = new Vector2D(Utility.SIZE_UNIT,Utility.SIZE_UNIT);
         Vector2D velocity = new Vector2D(0,0);
         Vector2D acceleration = new Vector2D(0,0);
         
@@ -119,8 +120,8 @@ public class LawOneController extends LawSceneController{
         //create blocks
         int numBlocks = 1000;
         
-        for (int i = 0; i < numBlocks * SIZE_UNIT; i+= SIZE_UNIT) {
-			DisplayObject block = new Block(lawOneFirstPane, i, SIZE_UNIT*3);
+        for (int i = 0; i < numBlocks * Utility.SIZE_UNIT; i+= Utility.SIZE_UNIT) {
+			DisplayObject block = new Block(lawOneFirstPane, i, Utility.SIZE_UNIT*3);
 			allDisplayObjects.add(block);			
 		}
         
@@ -133,7 +134,7 @@ public class LawOneController extends LawSceneController{
 	 */
 	private void initSecondPane() {
 		// create circle 2
-        Vector2D location = new Vector2D(SIZE_UNIT,SIZE_UNIT);
+        Vector2D location = new Vector2D(Utility.SIZE_UNIT,Utility.SIZE_UNIT);
         Vector2D velocity = new Vector2D(0,0);
         Vector2D acceleration = new Vector2D( 0,0);
         
@@ -144,8 +145,8 @@ public class LawOneController extends LawSceneController{
         //create blocks
         int numBlocks = 1000;
         
-        for (int i = 0; i < numBlocks * SIZE_UNIT; i+= SIZE_UNIT) {
-			DisplayObject block = new Block(lawOneSecondPane,  i, SIZE_UNIT*3);
+        for (int i = 0; i < numBlocks * Utility.SIZE_UNIT; i+= Utility.SIZE_UNIT) {
+			DisplayObject block = new Block(lawOneSecondPane,  i, Utility.SIZE_UNIT*3);
 			allDisplayObjects.add(block);			
 		}		
 	}
@@ -174,13 +175,13 @@ public class LawOneController extends LawSceneController{
 		double clipX = clipFirstPane.getX();
 		double circleLayoutX = circle_object1.getView().getLayoutX();
 				
-		if( clipX >= circleLayoutX - clip_min *SIZE_UNIT) { //clip starts to go backwards
+		if( clipX >= circleLayoutX - clip_min *Utility.SIZE_UNIT) { //clip starts to go backwards
 			clipFirstPane.setX(
-					(circleLayoutX - clip_min *SIZE_UNIT >= 0)? circleLayoutX - clip_min *SIZE_UNIT : 0
+					(circleLayoutX - clip_min *Utility.SIZE_UNIT >= 0)? circleLayoutX - clip_min *Utility.SIZE_UNIT : 0
 					);
 					
-		} else if( clipX <= circleLayoutX - clip_max *SIZE_UNIT) { //clip starts to follow
-			clipFirstPane.setX(circleLayoutX - clip_max *SIZE_UNIT);
+		} else if( clipX <= circleLayoutX - clip_max *Utility.SIZE_UNIT) { //clip starts to follow
+			clipFirstPane.setX(circleLayoutX - clip_max *Utility.SIZE_UNIT);
 		}
 	}
 

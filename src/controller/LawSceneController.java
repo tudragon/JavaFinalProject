@@ -29,9 +29,6 @@ public abstract class LawSceneController implements Initializable {
 	 * 3: law three */ 
 	private static int SCENE_NUMBER = 1;
 	
-	/**size unit of objects in panel. Default is 20 pixels*/
-	public static final double SIZE_UNIT = 20;
-	
 	/** Keep track of all objects on scene*/
 	protected List<DisplayObject> allDisplayObjects = new ArrayList<DisplayObject>();
 	

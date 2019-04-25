@@ -1,10 +1,10 @@
 package motion.staticobject;
 
-import controller.LawSceneController;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import motion.Utility;
 import motion.Vector2D;
 
 /**
@@ -13,7 +13,7 @@ import motion.Vector2D;
  *
  */
 public class Block extends StaticObject {	
-	private static double size = LawSceneController.SIZE_UNIT;
+	private static double size = Utility.SIZE_UNIT;
 
 	public Block() {
 		// TODO Auto-generated constructor stub

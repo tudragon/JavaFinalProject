@@ -1,13 +1,13 @@
 package motion.movingobject;
 
 
-import controller.LawSceneController;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
+import motion.Utility;
 import motion.Vector2D;
 
 public class Truck extends MovingObject {	
@@ -67,17 +67,17 @@ public class Truck extends MovingObject {
 		container.getChildren().add(hori_ver);
 		
 		//3. front wheel
-		Circle front_wheel = new Circle(2 * LawSceneController.SIZE_UNIT
-				, 2.5 * LawSceneController.SIZE_UNIT
-				, LawSceneController.SIZE_UNIT/2);
+		Circle front_wheel = new Circle(2 * Utility.SIZE_UNIT
+				, 2.5 * Utility.SIZE_UNIT
+				, Utility.SIZE_UNIT/2);
 		front_wheel.setFill(Color.WHITE);
 		front_wheel.setStroke(Color.BLACK);
 		container.getChildren().add(front_wheel);
 		
 		//4. back wheel
-		Circle back_wheel = new Circle(0.5 * LawSceneController.SIZE_UNIT
-				, 2.5 * LawSceneController.SIZE_UNIT
-				, LawSceneController.SIZE_UNIT/2);
+		Circle back_wheel = new Circle(0.5 * Utility.SIZE_UNIT
+				, 2.5 * Utility.SIZE_UNIT
+				, Utility.SIZE_UNIT/2);
 		back_wheel.setFill(Color.WHITE);
 		back_wheel.setStroke(Color.BLACK);
 		container.getChildren().add(back_wheel);
@@ -97,7 +97,7 @@ public class Truck extends MovingObject {
 		int len = multiplier.length;
 		Double output[] = new Double[len];
 		for (int i = 0; i < len; i++) {
-			output[i] = multiplier[i] * LawSceneController.SIZE_UNIT;
+			output[i] = multiplier[i] * Utility.SIZE_UNIT;
 		}
 		return output;
 	}
@@ -105,8 +105,8 @@ public class Truck extends MovingObject {
 	@Override
 	protected void setInitWidthHeight() {
 		//set width, height - depend on how the object is drawn
-		this.width = 3 * LawSceneController.SIZE_UNIT;
-		this.height = 3 * LawSceneController.SIZE_UNIT;
+		this.width = 3 * Utility.SIZE_UNIT;
+		this.height = 3 * Utility.SIZE_UNIT;
 	}
 
 }

@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import motion.DisplayObject;
+import motion.Utility;
 import motion.Vector2D;
 import motion.force.DragForce;
 import motion.force.Force;
@@ -60,15 +61,15 @@ public class LawTwoController extends LawSceneController {
 		lawTwoFormula.setText("a = \u03A3F / m");
 
 		//create truck
-		truck = new Truck(lawTwoPane, new Vector2D(SIZE_UNIT, SIZE_UNIT*3), 10);
+		truck = new Truck(lawTwoPane, new Vector2D(Utility.SIZE_UNIT, Utility.SIZE_UNIT*3), 10);
 		truck.setVelocity(new Vector2D(10, 0));
 		allDisplayObjects.add(truck);
 		
 		//create blocks
         int numBlocks = 1000;
         
-        for (int i = 0; i < numBlocks * SIZE_UNIT; i+= SIZE_UNIT) {
-			DisplayObject block = new Block(lawTwoPane, i, SIZE_UNIT*6);
+        for (int i = 0; i < numBlocks * Utility.SIZE_UNIT; i+= Utility.SIZE_UNIT) {
+			DisplayObject block = new Block(lawTwoPane, i, Utility.SIZE_UNIT*6);
 			allDisplayObjects.add(block);			
 		}
         
@@ -77,7 +78,7 @@ public class LawTwoController extends LawSceneController {
         Force N = new Force(lawTwoPane, 0, -8, truck, "N");
         //DEBUG: 
         //System.out.println("Truck width: " + truck.getWidth() + " height: " + truck.getHeight());
-        N.setRelativePositionOfForceToObject(SIZE_UNIT * -1, truck.getHeight()/2); //test move N down
+        N.setRelativePositionOfForceToObject(Utility.SIZE_UNIT * -1, truck.getHeight()/2); //test move N down
         
         F_engine = new Force(lawTwoPane, 10, 0, truck, "F_engine");
         Force F_drag = new DragForce(lawTwoPane, -5, 0, truck, "F_drag"); //drag of atmosphere
@@ -108,13 +109,13 @@ public class LawTwoController extends LawSceneController {
 		double clipX = clip.getX();
 		double truckLayoutX = truck.getView().getLayoutX();
 		
-		if( clipX >= truckLayoutX - clip_min *SIZE_UNIT) { //clip starts to go backwards
+		if( clipX >= truckLayoutX - clip_min *Utility.SIZE_UNIT) { //clip starts to go backwards
 			clip.setX(
-					(truckLayoutX - clip_min *SIZE_UNIT >= 0)? truckLayoutX - clip_min *SIZE_UNIT : 0
+					(truckLayoutX - clip_min *Utility.SIZE_UNIT >= 0)? truckLayoutX - clip_min *Utility.SIZE_UNIT : 0
 					);
 			
-		} else if( clipX <= truckLayoutX - clip_max *SIZE_UNIT) { //clip starts to follow
-			clip.setX(truckLayoutX - clip_max *SIZE_UNIT);
+		} else if( clipX <= truckLayoutX - clip_max *Utility.SIZE_UNIT) { //clip starts to follow
+			clip.setX(truckLayoutX - clip_max *Utility.SIZE_UNIT);
 		}
 		
 	}

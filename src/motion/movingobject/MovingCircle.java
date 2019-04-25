@@ -1,15 +1,15 @@
 package motion.movingobject;
 
-import controller.LawSceneController;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import motion.Utility;
 import motion.Vector2D;
 
 public class MovingCircle extends MovingObject {
 	
-	private static double radius = LawSceneController.SIZE_UNIT;
+	private static double radius = Utility.SIZE_UNIT;
 
 	public MovingCircle() {
 		// TODO Auto-generated constructor stub

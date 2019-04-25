@@ -1,11 +1,11 @@
 package motion.movingobject;
 
-import controller.LawSceneController;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
+import motion.Utility;
 import motion.Vector2D;
 
 public class Rocket extends MovingObject {
@@ -92,7 +92,7 @@ public class Rocket extends MovingObject {
 		int len = multiplier.length;
 		Double output[] = new Double[len];
 		for (int i = 0; i < len; i++) {
-			output[i] = multiplier[i] * LawSceneController.SIZE_UNIT;
+			output[i] = multiplier[i] * Utility.SIZE_UNIT;
 		}
 		return output;
 	}
@@ -100,7 +100,7 @@ public class Rocket extends MovingObject {
 	@Override
 	protected void setInitWidthHeight() {
 		//set width, height - depend on how the object is drawn
-		this.setWidth(3 * LawSceneController.SIZE_UNIT);
-		this.setHeight(5 * LawSceneController.SIZE_UNIT);				
+		this.setWidth(3 * Utility.SIZE_UNIT);
+		this.setHeight(5 * Utility.SIZE_UNIT);				
 	}
 }
