@@ -77,11 +77,11 @@
             </GridPane>
             <GridPane prefHeight="309.0" prefWidth="771.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="557.0" minWidth="10.0" prefWidth="554.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="385.0" minWidth="10.0" prefWidth="217.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="520.0" minWidth="10.0" prefWidth="520.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="310.0" minHeight="0.0" prefHeight="110.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="300.0" minHeight="0.0" prefHeight="300.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label prefHeight="30.0" prefWidth="143.0" text="II. Visualization:">
@@ -92,71 +92,12 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <VBox prefHeight="319.0" prefWidth="217.0" GridPane.columnIndex="1">
+                  <VBox prefHeight="319.0" prefWidth="217.0" GridPane.columnIndex="1" />
+                  <GridPane prefHeight="302.0" prefWidth="430.0">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="95.0" text="STATS" wrapText="true">
-                           <VBox.margin>
-                              <Insets left="60.0" top="25.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="P1" alignment="CENTER" text="P1 =">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="65.0" top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="P2" alignment="CENTER" text="P2 =">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="65.0" top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="f_gas" alignment="CENTER" text="F_gas = ">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="65.0" top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="f_engine" alignment="CENTER" text="F_engine = ">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="65.0" top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="a" alignment="CENTER" text="a    = ">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="65.0" top="5.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="v" alignment="CENTER" text="v    = ">
-                           <VBox.margin>
-                              <Insets left="65.0" top="10.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <GridPane prefHeight="335.0" prefWidth="554.0">
-                     <children>
-                        <AnchorPane fx:id="lawThreePane" prefHeight="306.0" prefWidth="554.0" GridPane.rowIndex="1">
+                        <AnchorPane fx:id="lawThreePane" prefHeight="306.0" prefWidth="520.0" GridPane.rowIndex="1">
                            <GridPane.margin>
-                              <Insets bottom="10.0" left="10.0" top="10.0" />
+                              <Insets />
                            </GridPane.margin></AnchorPane>
                      </children>
                      <columnConstraints>
@@ -164,8 +105,64 @@
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints maxHeight="173.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="182.0" vgrow="ALWAYS" />
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="266.0" vgrow="ALWAYS" />
                      </rowConstraints>
+                  </GridPane>
+                  <GridPane GridPane.columnIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="v" alignment="CENTER" text="v = " GridPane.rowIndex="5">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="a" alignment="CENTER" text="a = " GridPane.rowIndex="4">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="f_gas" alignment="CENTER" text="F_gas = " GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="f_rocket" alignment="CENTER" text="F_rocket = " GridPane.rowIndex="2">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="p2" alignment="CENTER" text="P2 =" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="p1" alignment="CENTER" text="P1 =" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="f_net" alignment="CENTER" text="Fnet =" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="206.0" text="STATS" wrapText="true" GridPane.columnSpan="2">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
                   </GridPane>
                </children>
             </GridPane>
@@ -181,13 +178,21 @@
                               <Font size="16.0" />
                            </font>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="38.0" prefWidth="78.0" text="RESET">
+                        <Button fx:id="lawThreeBurnMoreGas" alignment="CENTER" mnemonicParsing="false" onAction="#burnMoreGasBtnClick" prefHeight="38.0" prefWidth="135.0" text="Burn more gas">
                            <HBox.margin>
-                              <Insets left="380.0" top="10.0" />
+                              <Insets left="100.0" top="10.0" />
                            </HBox.margin>
                            <font>
                               <Font size="16.0" />
                            </font>
+                        </Button>
+                        <Button fx:id="lawThreeBurnLessGas" alignment="CENTER" mnemonicParsing="false" onAction="#burnLessGasBtnClick" prefHeight="38.0" prefWidth="135.0" text="Burn less gas">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="100.0" top="10.0" />
+                           </HBox.margin>
                         </Button>
                      </children>
                   </HBox>

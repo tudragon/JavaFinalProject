@@ -3,6 +3,7 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -28,14 +29,14 @@ public class LawThreeController extends LawSceneController {
 	
 	/** Display rocket's movement*/
 	@FXML
-	private Label P1,P2,f_gas,f_engine,a,v;
+	private Label p1,p2,f_rocket,f_gas,a,v, f_net;
 	
 	/** F_engine buttons*/
 	@FXML
 	private Button lawThreeBurnMoreGas, lawThreeBurnLessGas;
 	
-	/** F_engine*/
-	private Force F_gas;
+	/** Forces*/
+	private Force F_rocket,F_gas, P1, P2;
 
 	
 	public LawThreeController() {
@@ -43,7 +44,7 @@ public class LawThreeController extends LawSceneController {
 
 	@Override
 	protected void setupCameraPane() {
-		clip = new Rectangle(0,0, 600, 300);
+		clip = new Rectangle(0,0, 520, 260);
 		lawThreePane.setClip(clip);
 		
 	}
@@ -53,7 +54,8 @@ public class LawThreeController extends LawSceneController {
 		//create blocks: 
         int numHorizontalBlocks = 50 ;
         int numVerticalBlocks = 1000;
-        int offsetY = 12; //block on bottom left has (x,y) = (0,12) * SIZE_UNIT
+        int offsetY = 11; //block on bottom left has (x,y) = (0,11) * SIZE_UNIT
+        int offsetX = 9; //rocket base on bottom left has (x,y) = (9,0) * SIZE_UNIT
         
         for (int i = 0; i < numHorizontalBlocks * SIZE_UNIT; i+= SIZE_UNIT) {
 			DisplayObject block = new Block(lawThreePane, i, SIZE_UNIT*offsetY);
@@ -65,12 +67,11 @@ public class LawThreeController extends LawSceneController {
 			allDisplayObjects.add(block);			
 		}
 		
-        //rocket base
-        StaticObject rocket_base = new RocketBase(lawThreePane, 13 * SIZE_UNIT, 
-        		offsetY * SIZE_UNIT - 6 * SIZE_UNIT);
-        //rocket
-        MovingObject rocket = new Rocket(lawThreePane, 14 * SIZE_UNIT,
-        		offsetY * SIZE_UNIT - 6 * SIZE_UNIT, 10);
+        //Rocket base & Rocket
+        StaticObject rocket_base = new RocketBase(lawThreePane, offsetX * SIZE_UNIT, 
+        		(offsetY/2) * SIZE_UNIT);
+        this.rocket = new Rocket(lawThreePane, (offsetX + 1) * SIZE_UNIT,
+        		(offsetY/2) * SIZE_UNIT, 10);
         
         allDisplayObjects.add(rocket_base);
         allDisplayObjects.add(rocket);
@@ -82,6 +83,40 @@ public class LawThreeController extends LawSceneController {
          * 3. Create N on Rocket. N - P1 + Fgas = ma => N's forceVector changes in real-time
          */
         
+        //Force
+        P1 = new Force(lawThreePane, 0, 10, rocket, "P1");
+        P2 = new Force(lawThreePane, 0, -10, rocket, "P2");
+        F_rocket = new Force(lawThreePane, 0, -2, rocket, "F_rocket");
+        F_gas = new Force(lawThreePane, 0, 2, rocket, "F_gas");
+        
+        allDisplayObjects.add(P1);
+        allDisplayObjects.add(P2);
+        allDisplayObjects.add(F_rocket);
+        allDisplayObjects.add(F_gas);
+        
 	}
-
+	
+	@Override
+	protected void updatePane(double elapsedSeconds) {
+		super.updatePane(elapsedSeconds);
+		
+		//update label
+		this.p1.setText("P1 = " + this.P1.getForceVector());
+		this.p2.setText("P1 = " + this.P2.getForceVector());
+		this.f_rocket.setText("P1 = " + this.F_rocket.getForceVector());
+		this.f_gas.setText("P1 = " + this.F_gas.getForceVector());
+		this.v.setText("v = " + rocket.getVelocity());		
+		this.a.setText("a = " + rocket.getAcceleration());		
+		this.f_net.setText("Fnet = " + rocket.getSumForceVector());
+	}
+	
+	/** Called when burnMoreGas button is clicked*/
+	public void burnMoreGasBtnClick(ActionEvent e) {
+		System.out.println("More Gas");
+	}
+	
+	/** Called when burnLessGas button is clicked*/
+	public void burnLessGasBtnClick(ActionEvent e) {
+		System.out.println("Less Gas");
+	}
 }

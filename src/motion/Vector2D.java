@@ -69,7 +69,7 @@ public class Vector2D {
     
 	@Override
 	public String toString() {
-		return String.format("(%.1f,%.1f)", this.getX(), this.getY());
+		return String.format("(%.1f;%.1f)", this.getX(), this.getY());
 	}    
 	
 	/**
