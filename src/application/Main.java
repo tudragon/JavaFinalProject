@@ -19,15 +19,15 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {		
 		try {
 			//1. Load scene
-			Parent lawOneScene = FXMLLoader.load(getClass().getResource("../fxScene/law1scene.fxml"));
+			Parent welcomeScene = FXMLLoader.load(getClass().getResource("../fxScene/welcomescene.fxml"));
 			
 			//2. Set scene manually. Need to change that
-			primaryStage.setTitle("Newton First Law");
-            primaryStage.setScene(new Scene(lawOneScene));
+			primaryStage.setTitle("Welcome Scene");
+            primaryStage.setScene(new Scene(welcomeScene));
             
             primaryStage.setMaximized(true);
             
-            System.out.println("Max Width: " +primaryStage.getMaxWidth() + " Max height: " + primaryStage.getMaxHeight());
+            //System.out.println("Max Width: " +primaryStage.getMaxWidth() + " Max height: " + primaryStage.getMaxHeight());
                         
 			primaryStage.show();
 		} catch(Exception e) {

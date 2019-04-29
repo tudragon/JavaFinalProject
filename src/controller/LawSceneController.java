@@ -27,7 +27,7 @@ public abstract class LawSceneController implements Initializable {
 	 * 1: law one
 	 * 2: law two
 	 * 3: law three */ 
-	private static int SCENE_NUMBER = 1;
+	public static int SCENE_NUMBER = 1;
 	
 	/** Keep track of all objects on scene*/
 	protected List<DisplayObject> allDisplayObjects = new ArrayList<DisplayObject>();
