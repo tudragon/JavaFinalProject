@@ -54,9 +54,16 @@ public class RocketGas extends MovingObject {
 			//2. clear path
 			this.paths.getElements().clear();
 			
-			//3. redraw
+			//check if vector is 0
+			if(forceGasYVector == 0) return;
+			
+			//3. random
+			int random;
+			
+			//4. redraw
 			for (int i = 0; i < this.rocket.getWidth(); i+=5) {
-				Utility.drawSmallLine(i, 0, i, forceGasYVector, paths);				
+				random = (int)(Math.random() * 10 + 1);
+				Utility.drawSmallLine(i, 0, i, forceGasYVector + random, paths);				
 			}
 		} catch(IndexOutOfBoundsException e) {
 			//no f_gas yet

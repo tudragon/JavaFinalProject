@@ -6,8 +6,8 @@ import javafx.scene.shape.Path;
 
 public class Utility {
 	
-	/**size unit of objects in panel. Default is 20 pixels*/
-	public static final double SIZE_UNIT = 20;
+	/**size unit of objects in panel. Default is 40 pixels*/
+	public static final double SIZE_UNIT = 40;
 	
 	/** Default force is 10 Newton*/
 	public static final int DEFAULT_FORCE = 10;

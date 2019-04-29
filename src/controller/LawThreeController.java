@@ -44,7 +44,7 @@ public class LawThreeController extends LawSceneController {
 
 	@Override
 	protected void setupCameraPane() {
-		clip = new Rectangle(0,0, 520, 260);
+		clip = new Rectangle(0,0, 950, 450);
 		lawThreePane.setClip(clip);
 		
 		//Move camera: pane.translatey = -clip.y
@@ -57,7 +57,7 @@ public class LawThreeController extends LawSceneController {
 		//create blocks: 
         int numHorizontalBlocks = 50 ;
         int numVerticalBlocks = 1000;
-        int offsetY = 11; //block on bottom left has (x,y) = (0,11) * SIZE_UNIT
+        int offsetY = 10; //block on bottom left has (x,y) = (0,10) * SIZE_UNIT
         int offsetX = 9; //rocket base on bottom left has (x,y) = (9,0) * SIZE_UNIT
         
         for (int i = 0; i < numHorizontalBlocks * Utility.SIZE_UNIT; i+= Utility.SIZE_UNIT) {
@@ -72,9 +72,9 @@ public class LawThreeController extends LawSceneController {
 		
         //Rocket base & Rocket
         StaticObject rocket_base = new RocketBase(lawThreePane, offsetX * Utility.SIZE_UNIT, 
-        		(offsetY/2) * Utility.SIZE_UNIT);
+        		(offsetY - 6) * Utility.SIZE_UNIT);
         this.rocket = new Rocket(lawThreePane, (offsetX + 1) * Utility.SIZE_UNIT,
-        		(offsetY/2) * Utility.SIZE_UNIT, 10);
+        		(offsetY - 6) * Utility.SIZE_UNIT, 10);
         
         allDisplayObjects.add(rocket_base);
         allDisplayObjects.add(rocket);
@@ -94,15 +94,22 @@ public class LawThreeController extends LawSceneController {
         allDisplayObjects.add(earth);
         
         //Force
-        P1 = new Force(lawThreePane, 0, 10, rocket, "P1");
-        N = new Force(lawThreePane, 0, -10, rocket, "N");
+        P1 = new Force(lawThreePane, 0, 5, rocket, "P1");
+        N = new Force(lawThreePane, 0, -5, rocket, "N");
         N.setRelativePositionOfForceToObject(Utility.SIZE_UNIT, rocket.getHeight()/2);
         
-        P2 = new Force(lawThreePane, 0, -10, earth, "P2");
+        P2 = new Force(lawThreePane, 0, -5, earth, "P2");
         P2.setRelativeXofTextToForce(-1);
         
         F_rocket = new Force(lawThreePane, 0, 0, rocket, "F_rocket");
         F_gas = new Force(lawThreePane, 0, 0, rocketGas, "F_gas");
+        
+        //shorten F_gas, F_rocket arrow
+        F_rocket.setArrowLengthMultiplier(0.1);
+        F_gas.setArrowLengthMultiplier(0.1);
+        
+        //reposition F_rocket
+        F_rocket.setRelativePositionOfForceToObject(0, -2 * Utility.SIZE_UNIT);
         
         allDisplayObjects.add(P1);
         allDisplayObjects.add(N);
@@ -154,17 +161,17 @@ public class LawThreeController extends LawSceneController {
 	
 	/** Called when burnMoreGas button is clicked*/
 	public void burnMoreGasBtnClick(ActionEvent e) {
-		System.out.println("F_gas is now: (0, "  +F_gas.getForceVector().getY() + "). More Gas");
-		F_rocket.getForceVector().add(new Vector2D(0, -Utility.DEFAULT_FORCE));
-		F_gas.getForceVector().add(new Vector2D(0, Utility.DEFAULT_FORCE));
+		//System.out.println("F_gas is now: (0, "  +F_gas.getForceVector().getY() + "). More Gas");
+		F_rocket.getForceVector().add(new Vector2D(0, -2 * Utility.DEFAULT_FORCE));
+		F_gas.getForceVector().add(new Vector2D(0, 2 * Utility.DEFAULT_FORCE));
 	}
 	
 	/** Called when burnLessGas button is clicked*/
 	public void burnLessGasBtnClick(ActionEvent e) {
-		System.out.println("F_gas is now: (0, "  +F_gas.getForceVector().getY() + "). Less Gas");
+		//System.out.println("F_gas is now: (0, "  +F_gas.getForceVector().getY() + "). Less Gas");
 		if(F_gas.getForceVector().getY() > 0) { //if f_gas is still positive
-			F_rocket.getForceVector().add(new Vector2D(0, Utility.DEFAULT_FORCE));
-			F_gas.getForceVector().add(new Vector2D(0, -Utility.DEFAULT_FORCE));
+			F_rocket.getForceVector().add(new Vector2D(0, 2 * Utility.DEFAULT_FORCE));
+			F_gas.getForceVector().add(new Vector2D(0, -2 * Utility.DEFAULT_FORCE));
 		}
 		
 	}

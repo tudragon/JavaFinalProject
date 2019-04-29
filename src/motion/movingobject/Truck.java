@@ -49,7 +49,8 @@ public class Truck extends MovingObject {
 		//multiple by SIZE_UNIT and add to Polygon
 		hori_rec.getPoints().addAll(multiplyDoubelArray(hori_rec_raw));
 		
-		hori_rec.setFill(Color.BLACK);
+		hori_rec.setFill(Color.WHITE);
+		hori_rec.setStroke(Color.BLACK);
 		container.getChildren().add(hori_rec);
 		
 		//2. the head of the truck
@@ -71,7 +72,7 @@ public class Truck extends MovingObject {
 				, 2.5 * Utility.SIZE_UNIT
 				, Utility.SIZE_UNIT/2);
 		front_wheel.setFill(Color.WHITE);
-		front_wheel.setStroke(Color.BLACK);
+		front_wheel.setStroke(Color.BLUE);
 		container.getChildren().add(front_wheel);
 		
 		//4. back wheel
@@ -79,7 +80,7 @@ public class Truck extends MovingObject {
 				, 2.5 * Utility.SIZE_UNIT
 				, Utility.SIZE_UNIT/2);
 		back_wheel.setFill(Color.WHITE);
-		back_wheel.setStroke(Color.BLACK);
+		back_wheel.setStroke(Color.BLUE);
 		container.getChildren().add(back_wheel);
 		
 		//relocate the container

@@ -47,7 +47,7 @@ public class LawTwoController extends LawSceneController {
 	/** Set up camera in the pane of this scene */
 	@Override
 	protected void setupCameraPane() {		
-		clip = new Rectangle(0,0, 600, 200);
+		clip = new Rectangle(0,0, 1200, 500);
 		lawTwoPane.setClip(clip);
 		
 		//Move camera: pane.translatex = -clip.x 
@@ -82,7 +82,8 @@ public class LawTwoController extends LawSceneController {
         
         F_engine = new Force(lawTwoPane, 10, 0, truck, "F_engine");
         Force F_drag = new DragForce(lawTwoPane, -5, 0, truck, "F_drag"); //drag of atmosphere
-        F_drag.setRelativeXofTextToForce(-3);; // name is displayed backwards 3 * SIZE_UNIT
+        F_drag.setRelativeXofTextToForce(-1); // name is displayed backwards
+        F_drag.setRelativePositionOfForceToObject(1 * Utility.SIZE_UNIT, -1 * Utility.SIZE_UNIT);
         
         allDisplayObjects.add(P);
         allDisplayObjects.add(N);

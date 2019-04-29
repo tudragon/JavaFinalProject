@@ -38,6 +38,7 @@ public class Force extends DisplayObject {
 	
 	/** Display arrow of the force*/
 	private Path arrow;
+	private double arrowLengthMultiplier = 1; //length of the arrow force relative to default
 	
 	/**
 	 * Init the force, but not start yet
@@ -107,6 +108,14 @@ public class Force extends DisplayObject {
 	public void setRelativePositionOfForceToObject(double relativeX, double relativeY) {
 		this.relativeXofForceToObject = relativeX;
 		this.relativeYofForceToObject = relativeY;
+	}	
+
+	public double getArrowLengthMultiplier() {
+		return arrowLengthMultiplier;
+	}
+
+	public void setArrowLengthMultiplier(double arrowLengthMultiplier) {
+		this.arrowLengthMultiplier = arrowLengthMultiplier;
 	}
 
 	@Override
@@ -130,8 +139,8 @@ public class Force extends DisplayObject {
 			//update arrow
 			double startX = object.getWidth()/2; //start at the center of object
 			double startY = object.getHeight()/2;
-			double endX = startX + forceVectorX*Utility.SIZE_UNIT/2; //end at arrow tip
-			double endY = startY + forceVectorY*Utility.SIZE_UNIT/2;
+			double endX = startX + forceVectorX*Utility.SIZE_UNIT/2 * this.getArrowLengthMultiplier(); //end at arrow tip
+			double endY = startY + forceVectorY*Utility.SIZE_UNIT/2 * this.getArrowLengthMultiplier();
 			
 			drawArrow(startX, startY, endX, endY);
 			
