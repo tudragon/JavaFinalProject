@@ -9,62 +9,86 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="575.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LawOneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LawOneController">
    <children>
-      <VBox layoutX="14.0" layoutY="14.0" prefHeight="578.0" prefWidth="880.0">
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="1071.0" prefWidth="1904.0">
          <children>
-            <Label alignment="CENTER" prefHeight="86.0" prefWidth="692.0" text="NEWTON'S FIRST LAW OF MOTION" textAlignment="CENTER">
+            <Label alignment="CENTER" prefHeight="123.0" prefWidth="1612.0" text="NEWTON'S FIRST LAW OF MOTION" textAlignment="CENTER">
                <padding>
                   <Insets bottom="30.0" />
                </padding>
                <font>
-                  <Font size="25.0" />
+                  <Font size="64.0" />
                </font>
             </Label>
             <GridPane>
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="61.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="278.0" minWidth="10.0" prefWidth="278.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="500.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="500.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="61.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="278.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ImageView fitHeight="167.0" fitWidth="246.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowSpan="2">
+                  <ImageView fitHeight="283.0" fitWidth="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowSpan="2">
                      <image>
                         <Image url="@../../images/newton.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="startPauseButton" mnemonicParsing="false" onAction="#startPauseBtnClick" text="START" GridPane.rowIndex="1" />
-                  <Button fx:id="lawOneSpeedUpButton" mnemonicParsing="false" onAction="#lawOneSpeedUp" text="Speed Up" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button fx:id="lawOneSlowDownButton" mnemonicParsing="false" onAction="#lawOneSlowDown" text="Slow Down" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Label prefHeight="129.0" prefWidth="602.0" text="I. CONTENT:&#10;If external force is 0, then the velocity of an object is unchanged:&#10;1) What's static remains static&#10;2) What's moving keeps moving (with same velocity)&#10;&#10;II. VISUALIZATION:" wrapText="true" GridPane.columnSpan="3">
+                  <Button fx:id="startPauseButton" mnemonicParsing="false" onAction="#startPauseBtnClick" text="START" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="lawOneSpeedUpButton" mnemonicParsing="false" onAction="#lawOneSpeedUp" text="Speed Up" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="lawOneSlowDownButton" mnemonicParsing="false" onAction="#lawOneSlowDown" text="Slow Down" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Label alignment="TOP_LEFT" prefHeight="292.0" prefWidth="1616.0" text="I. CONTENT:&#10;If external force is 0, then the velocity of an object is unchanged:&#10;&#10;                                                                 1) What's static remains static&#10;                                                                 2) What's moving keeps moving (with same velocity)&#10;&#10;II. VISUALIZATION:" wrapText="true" GridPane.columnSpan="3">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font size="24.0" />
+                     </font>
                   </Label>
                </children>
+               <VBox.margin>
+                  <Insets right="30.0" />
+               </VBox.margin>
             </GridPane>
             <GridPane gridLinesVisible="true" maxHeight="-Infinity" minHeight="200.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="661.0" minWidth="10.0" prefWidth="627.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="435.0" minWidth="10.0" prefWidth="253.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1200.0" minWidth="10.0" prefWidth="1200.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="600.0" minWidth="10.0" prefWidth="600.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="250.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="250.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
                         <VBox layoutX="8.0" prefHeight="90.0" prefWidth="235.0">
                            <children>
-                              <Label fx:id="f1" text="F =" />
-                              <Label fx:id="v1" text="v = " />
-                              <Label fx:id="a1" text="a = " />
+                              <Label fx:id="f1" text="F =">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font></Label>
+                              <Label fx:id="v1" text="v = ">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font></Label>
+                              <Label fx:id="a1" text="a = ">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font></Label>
                            </children>
                            <padding>
                               <Insets top="10.0" />
@@ -78,9 +102,18 @@
                      <children>
                         <VBox layoutX="8.0" prefHeight="90.0" prefWidth="235.0">
                            <children>
-                              <Label fx:id="f2" text="F =" />
-                              <Label fx:id="v2" text="v = " />
-                              <Label fx:id="a2" text="a = " />
+                              <Label fx:id="f2" text="F =">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font></Label>
+                              <Label fx:id="v2" text="v = ">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font></Label>
+                              <Label fx:id="a2" text="a = ">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font></Label>
                            </children>
                            <padding>
                               <Insets top="10.0" />
@@ -95,21 +128,24 @@
                <VBox.margin>
                   <Insets bottom="20.0" right="10.0" top="20.0" />
                </VBox.margin>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </GridPane>
          </children>
       </VBox>
-      <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="61.0" prefWidth="771.0">
+      <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="61.0" prefWidth="1725.0">
          <children>
             <Button id="previousSceneButton" fx:id="nextLawButton" mnemonicParsing="false" onAction="#nextLaw" prefHeight="56.0" prefWidth="56.0">
                <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/Next_48x48.png" />
                      </image>
                   </ImageView>
                </graphic>
                <HBox.margin>
-                  <Insets left="750.0" />
+                  <Insets left="1600.0" />
                </HBox.margin>
             </Button>
          </children>

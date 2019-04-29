@@ -25,6 +25,10 @@ public class Main extends Application {
 			primaryStage.setTitle("Newton First Law");
             primaryStage.setScene(new Scene(lawOneScene));
             
+            primaryStage.setMaximized(true);
+            
+            System.out.println("Max Width: " +primaryStage.getMaxWidth() + " Max height: " + primaryStage.getMaxHeight());
+                        
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
