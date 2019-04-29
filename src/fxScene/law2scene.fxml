@@ -64,7 +64,7 @@
                   </Label>
                   <ImageView fitHeight="222.0" fitWidth="215.0" pickOnBounds="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@../../images/bro-do-you-know-newtons-second-law-fb-com-belykbro-no-im-7772047.png" />
+                        <Image url="@../../images/newton_law_2.png" />
                      </image>
                      <GridPane.margin>
                         <Insets />

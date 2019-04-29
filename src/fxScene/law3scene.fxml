@@ -55,7 +55,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="1564.0" text="FA = −FB" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="3" GridPane.rowIndex="2">
+                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="1564.0" text="F_ab = −F_ba" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="3" GridPane.rowIndex="2">
                      <font>
                         <Font size="48.0" />
                      </font>
@@ -65,7 +65,7 @@
                   </Label>
                   <ImageView fitHeight="145.0" fitWidth="131.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@../../images/text-your-crush-you-will-see-how-newtons-3rd-11157286.png" />
+                        <Image url="@../../images/newton_law_3.png" />
                      </image>
                      <GridPane.margin>
                         <Insets />
