@@ -19,19 +19,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LawThreeController">
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LawThreeController">
    <children>
-      <VBox prefHeight="1080.0" prefWidth="1920.0">
+      <VBox prefHeight="768.0" prefWidth="1366.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="1615.0" text="NEWTON'S THIRD LAW OF MOTION">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="1366.0" text="NEWTON'S THIRD LAW OF MOTION">
                <font>
-                  <Font size="64.0" />
+                  <Font size="48.0" />
                </font>
             </Label>
-            <GridPane prefHeight="300.0" prefWidth="771.0">
+            <GridPane prefHeight="180.0" prefWidth="1366.0">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="256.0" minWidth="10.0" prefWidth="199.0" />
+                  <ColumnConstraints />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -49,7 +50,7 @@
                   </Label>
                   <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="72.0" prefWidth="1528.0" text="For every action, there is an equal and opposite reaction." wrapText="true" GridPane.columnSpan="3" GridPane.rowIndex="1">
                      <font>
-                        <Font size="36.0" />
+                        <Font size="24.0" />
                      </font>
                      <GridPane.margin>
                         <Insets left="10.0" />
@@ -57,13 +58,13 @@
                   </Label>
                   <Label alignment="CENTER" prefHeight="58.0" prefWidth="1564.0" text="F_ab = −F_ba" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="3" GridPane.rowIndex="2">
                      <font>
-                        <Font size="48.0" />
+                        <Font size="36.0" />
                      </font>
                      <GridPane.margin>
                         <Insets top="-60.0" />
                      </GridPane.margin>
                   </Label>
-                  <ImageView fitHeight="145.0" fitWidth="131.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <image>
                         <Image url="@../../images/newton_law_3.png" />
                      </image>
@@ -73,13 +74,13 @@
                   </ImageView>
                </children>
             </GridPane>
-            <GridPane prefHeight="500.0" prefWidth="1200.0">
+            <GridPane prefHeight="450.0" prefWidth="1200.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="800.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="500.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="450.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints minHeight="0.0" prefHeight="500.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="0.0" prefHeight="450.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <GridPane prefHeight="302.0" prefWidth="1200.0">
@@ -102,7 +103,7 @@
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints maxHeight="173.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="266.0" vgrow="ALWAYS" />
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="ALWAYS" />
                      </rowConstraints>
                   </GridPane>
                   <GridPane GridPane.columnIndex="1">
@@ -121,37 +122,37 @@
                      <children>
                         <Label fx:id="v" alignment="CENTER" text="v = " GridPane.rowIndex="5">
                            <font>
-                              <Font size="36.0" />
+                              <Font size="32.0" />
                            </font>
                         </Label>
                         <Label fx:id="a" alignment="CENTER" text="a = " GridPane.rowIndex="4">
                            <font>
-                              <Font size="36.0" />
+                              <Font size="32.0" />
                            </font>
                         </Label>
                         <Label fx:id="f_gas" alignment="CENTER" text="F_gas = " GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
-                              <Font size="36.0" />
+                              <Font size="32.0" />
                            </font>
                         </Label>
                         <Label fx:id="f_rocket" alignment="CENTER" text="F_rocket = " GridPane.rowIndex="2">
                            <font>
-                              <Font size="36.0" />
+                              <Font size="32.0" />
                            </font>
                         </Label>
                         <Label fx:id="p2" alignment="CENTER" text="P2 =" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font size="36.0" />
+                              <Font size="32.0" />
                            </font>
                         </Label>
                         <Label fx:id="p1" alignment="CENTER" text="P1 =" GridPane.rowIndex="1">
                            <font>
-                              <Font size="36.0" />
+                              <Font size="32.0" />
                            </font>
                         </Label>
                         <Label fx:id="f_net" alignment="CENTER" text="Fnet =" GridPane.rowIndex="3">
                            <font>
-                              <Font size="36.0" />
+                              <Font size="32.0" />
                            </font>
                         </Label>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="53.0" prefWidth="476.0" text="STATS" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER">
@@ -175,7 +176,7 @@
                   </Button>
                   <Button fx:id="lawThreeBurnMoreGas" alignment="CENTER" mnemonicParsing="false" onAction="#burnMoreGasBtnClick" prefHeight="51.0" prefWidth="240.0" text="Burn more gas">
                      <HBox.margin>
-                        <Insets left="300.0" top="10.0" />
+                        <Insets left="200.0" top="10.0" />
                      </HBox.margin>
                      <font>
                         <Font size="24.0" />
@@ -186,13 +187,16 @@
                         <Font size="24.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="300.0" top="10.0" />
+                        <Insets left="200.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-               </children></HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin></HBox>
          </children>
       </VBox>
-      <HBox prefHeight="60.0" prefWidth="1797.0">
+      <HBox prefHeight="60.0" prefWidth="1366.0">
          <children>
             <Button fx:id="previousLawButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#previousLaw" prefHeight="56.0" prefWidth="56.0">
                <HBox.margin>

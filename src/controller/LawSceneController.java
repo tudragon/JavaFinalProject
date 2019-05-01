@@ -36,11 +36,11 @@ public abstract class LawSceneController implements Initializable {
 	protected AnimationTimer PaneTimer;
 	
 	/** Clip limit: Clip.X belongs to interval [object.X - clip_max, object.x - clip_min]*/
-	protected static final double clip_min_x = 10.0; //clip starts to catch up backwards
-	protected static final double clip_max_x = 15.0; //clip starts to follow
+	protected static final double clip_min_x = 7.0; //clip starts to catch up backwards
+	protected static final double clip_max_x = 10.0; //clip starts to follow
 	
 	/** Clip limit: Clip.Y belongs to interval [object.Y - clip_max, object.Y - clip_min]*/
-	protected static final double clip_min_y = 4.0; //clip starts to catch up backwards
+	protected static final double clip_min_y = 3.0; //clip starts to catch up backwards
 	protected static final double clip_max_y = 5.0; //clip starts to follow
 	
 	/** Previous and next law button*/

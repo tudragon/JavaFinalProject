@@ -75,7 +75,7 @@ public class LawOneController extends LawSceneController{
 	 * Set up a simple clip in second Pane (circle 2 will not move)
 	 */
 	private void setupCameraSecondPane() {
-		Rectangle clip = new Rectangle(0,0, 1200, 250); 
+		Rectangle clip = new Rectangle(0,0, 950, 250); 
 		lawOneSecondPane.setClip(clip);
 	}
 
@@ -83,7 +83,7 @@ public class LawOneController extends LawSceneController{
 	 * Set up a camera that will follow the circle object in first Pane
 	 */
 	private void setupCameraFirstPane() {
-		clipFirstPane = new Rectangle(0,0, 1200, 250); 
+		clipFirstPane = new Rectangle(0,0, 950, 250); 
 
 		//Bind clip to circle's X: clip.x = circle.layoutX - 2 * SIZE_UNIT
 		//clipFirstPane.xProperty().bind(Bindings.add(-2*SIZE_UNIT, circle_object1.getView().layoutXProperty()));

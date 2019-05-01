@@ -47,7 +47,7 @@ public class LawTwoController extends LawSceneController {
 	/** Set up camera in the pane of this scene */
 	@Override
 	protected void setupCameraPane() {		
-		clip = new Rectangle(0,0, 1200, 500);
+		clip = new Rectangle(0,0, 950, 500);
 		lawTwoPane.setClip(clip);
 		
 		//Move camera: pane.translatex = -clip.x 

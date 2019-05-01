@@ -9,22 +9,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LawOneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LawOneController">
    <children>
-      <VBox layoutX="14.0" layoutY="14.0" prefHeight="1080.0" prefWidth="1920.0">
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="768.0" prefWidth="1366.0">
          <children>
             <Label alignment="CENTER" prefHeight="123.0" prefWidth="1612.0" text="NEWTON'S FIRST LAW OF MOTION" textAlignment="CENTER">
                <padding>
-                  <Insets bottom="30.0" />
+                  <Insets bottom="10.0" />
                </padding>
                <font>
-                  <Font size="64.0" />
+                  <Font size="48.0" />
                </font>
             </Label>
             <GridPane>
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="500.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="500.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="350.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="350.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="61.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="278.0" />
               </columnConstraints>
@@ -33,7 +33,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ImageView fitHeight="283.0" fitWidth="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowSpan="2">
+                  <ImageView fitHeight="250.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowSpan="2">
                      <image>
                         <Image url="@../../images/newton.jpg" />
                      </image>
@@ -50,7 +50,7 @@
                      <font>
                         <Font size="24.0" />
                      </font></Button>
-                  <Label alignment="TOP_LEFT" prefHeight="292.0" prefWidth="1616.0" text="I. CONTENT:&#10;If external force is 0, then the velocity of an object is unchanged:&#10;&#10;                                                                 1) What's static remains static&#10;                                                                 2) What's moving keeps moving (with same velocity)&#10;&#10;II. VISUALIZATION:" wrapText="true" GridPane.columnSpan="3">
+                  <Label alignment="TOP_LEFT" prefHeight="292.0" prefWidth="1616.0" text="I. CONTENT:&#10;If external force is 0, then the velocity of an object is unchanged:&#10;                                           1) What's static remains static&#10;                                           2) What's moving keeps moving (with same velocity)&#10;II. VISUALIZATION:" wrapText="true" GridPane.columnSpan="3">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -134,7 +134,7 @@
             </GridPane>
          </children>
       </VBox>
-      <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="61.0" prefWidth="1725.0">
+      <HBox alignment="TOP_CENTER" fillHeight="false" layoutX="10.0" layoutY="10.0" prefHeight="61.0" prefWidth="1150.0">
          <children>
             <Button id="previousSceneButton" fx:id="nextLawButton" mnemonicParsing="false" onAction="#nextLaw" prefHeight="56.0" prefWidth="56.0">
                <graphic>
@@ -145,7 +145,7 @@
                   </ImageView>
                </graphic>
                <HBox.margin>
-                  <Insets left="1600.0" />
+                  <Insets left="1250.0" />
                </HBox.margin>
             </Button>
          </children>

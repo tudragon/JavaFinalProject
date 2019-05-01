@@ -44,7 +44,7 @@ public class LawThreeController extends LawSceneController {
 
 	@Override
 	protected void setupCameraPane() {
-		clip = new Rectangle(0,0, 950, 450);
+		clip = new Rectangle(0,0, 850, 420);
 		lawThreePane.setClip(clip);
 		
 		//Move camera: pane.translatey = -clip.y
@@ -57,8 +57,8 @@ public class LawThreeController extends LawSceneController {
 		//create blocks: 
         int numHorizontalBlocks = 50 ;
         int numVerticalBlocks = 1000;
-        int offsetY = 10; //block on bottom left has (x,y) = (0,10) * SIZE_UNIT
-        int offsetX = 9; //rocket base on bottom left has (x,y) = (9,0) * SIZE_UNIT
+        int offsetY = 9; //block on bottom left has (x,y) = (0,offsetY) * SIZE_UNIT
+        int offsetX = 9; //rocket base on bottom left has (x,y) = (offsetX,0) * SIZE_UNIT
         
         for (int i = 0; i < numHorizontalBlocks * Utility.SIZE_UNIT; i+= Utility.SIZE_UNIT) {
 			DisplayObject block = new Block(lawThreePane, i, Utility.SIZE_UNIT*offsetY);

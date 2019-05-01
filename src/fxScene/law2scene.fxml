@@ -19,16 +19,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LawTwoController">
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LawTwoController">
    <children>
-      <VBox prefHeight="1080.0" prefWidth="1920.0">
+      <VBox prefHeight="768.0" prefWidth="1366.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="93.0" prefWidth="1654.0" text="NEWTON'S SECOND LAW OF MOTION">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="70.0" prefWidth="1366.0" text="NEWTON'S SECOND LAW OF MOTION">
                <font>
-                  <Font size="64.0" />
+                  <Font size="48.0" />
                </font>
             </Label>
-            <GridPane prefHeight="320.0" prefWidth="771.0">
+            <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="1300.0">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -37,7 +37,7 @@
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
@@ -49,20 +49,20 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="197.0" prefWidth="1549.0" stylesheets="@../../../../_DataLab/law2scene.css" text="The acceleration of an object as produced by a net force is directly proportional to the magnitude of the net force, in the same direction as the net force, and inversely proportional to the mass of the object." wrapText="true" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                  <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="135.0" prefWidth="1091.0" stylesheets="@../../../../_DataLab/law2scene.css" text="The acceleration of an object as produced by a net force is directly proportional to the magnitude of the net force, in the same direction as the net force, and inversely proportional to the mass of the object." wrapText="true" GridPane.columnSpan="3" GridPane.rowIndex="1">
                      <font>
-                        <Font size="36.0" />
+                        <Font size="23.0" />
                      </font>
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label fx:id="lawTwoFormula" alignment="CENTER" prefHeight="72.0" prefWidth="1608.0" text="a = Fnet / m" textAlignment="CENTER" GridPane.columnSpan="3" GridPane.rowIndex="2">
+                  <Label fx:id="lawTwoFormula" alignment="CENTER" prefHeight="43.0" prefWidth="1064.0" text="a = Fnet / m" textAlignment="CENTER" GridPane.columnSpan="3" GridPane.rowIndex="2">
                      <font>
                         <Font size="48.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="222.0" fitWidth="215.0" pickOnBounds="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <image>
                         <Image url="@../../images/newton_law_2.png" />
                      </image>
@@ -72,10 +72,10 @@
                   </ImageView>
                </children>
             </GridPane>
-            <GridPane prefHeight="500.0" prefWidth="1900.0">
+            <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1300.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1200.0" minWidth="10.0" prefWidth="1200.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="600.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="900.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="400.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
@@ -142,14 +142,14 @@
                       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <AnchorPane fx:id="lawTwoPane" prefHeight="295.0" prefWidth="1200.0" GridPane.rowIndex="1" />
+                        <AnchorPane fx:id="lawTwoPane" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children>
             </GridPane>
-            <HBox prefHeight="75.0" prefWidth="771.0">
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="75.0" prefWidth="771.0">
                <children>
-                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="1866.0">
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1366.0">
                      <children>
                         <Button fx:id="startPauseButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#startPauseBtnClick" prefHeight="51.0" prefWidth="264.0" text="START">
                            <HBox.margin>
@@ -161,7 +161,7 @@
                         </Button>
                         <Button fx:id="lawTwoForceEngineUp" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#forceEngineUpClick" prefHeight="38.0" prefWidth="237.0" text="F_engine ++">
                            <HBox.margin>
-                              <Insets left="300.0" top="10.0" />
+                              <Insets left="200.0" top="10.0" />
                            </HBox.margin>
                            <font>
                               <Font size="24.0" />
@@ -169,7 +169,7 @@
                         </Button>
                         <Button fx:id="lawTwoForceEngineDown" alignment="CENTER" mnemonicParsing="false" onAction="#forceEngineDownClick" prefHeight="38.0" prefWidth="231.0" text="F_engine --">
                            <HBox.margin>
-                              <Insets left="300.0" top="10.0" />
+                              <Insets left="200.0" top="10.0" />
                            </HBox.margin>
                            <font>
                               <Font size="24.0" />
@@ -180,10 +180,13 @@
                </children>
                <VBox.margin>
                   <Insets />
-               </VBox.margin></HBox>
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding></HBox>
          </children>
       </VBox>
-      <HBox prefHeight="110.0" prefWidth="1903.0">
+      <HBox prefHeight="110.0" prefWidth="1366.0">
          <children>
             <Button id="nextSceneButton" fx:id="previousLawButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#previousLaw" prefHeight="56.0" prefWidth="56.0">
                <HBox.margin>
@@ -200,7 +203,7 @@
             </Button>
             <Button id="previousSceneButton" fx:id="nextLawButton" mnemonicParsing="false" onAction="#nextLaw" prefHeight="56.0" prefWidth="56.0">
                <HBox.margin>
-                  <Insets left="1600.0" />
+                  <Insets left="1200.0" />
                   
                   
                </HBox.margin>
