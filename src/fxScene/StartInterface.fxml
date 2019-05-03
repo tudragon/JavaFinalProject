@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="175.0" prefWidth="600.0" text="THE THREE NEWTON'S LAWS OF MOTION THEORY AND VISUALIZATION" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <VBox prefHeight="225.0" prefWidth="600.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="450.0">
+               <graphic>
+                  <Label prefHeight="27.0" prefWidth="444.0" text="I.    Isaac Newton - The greatest scientist of 20th century">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </graphic>
+               <VBox.margin>
+                  <Insets left="75.0" />
+               </VBox.margin></Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="450.0">
+               <graphic>
+                  <Label text="II.   Newton's First Law of Motion" />
+               </graphic>
+               <VBox.margin>
+                  <Insets left="75.0" top="10.0" />
+               </VBox.margin></Button>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="450.0">
+               <graphic>
+                  <Label text="III.  Newton's Second Law of Motion" />
+               </graphic>
+               <VBox.margin>
+                  <Insets left="75.0" top="10.0" />
+               </VBox.margin></Button>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="450.0">
+               <graphic>
+                  <Label text="IV.  Newton's Third Law of Motion" />
+               </graphic>
+               <VBox.margin>
+                  <Insets left="75.0" top="10.0" />
+               </VBox.margin></Button>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="450.0">
+               <graphic>
+                  <Label text="V.   About" />
+               </graphic>
+               <VBox.margin>
+                  <Insets left="75.0" top="10.0" />
+               </VBox.margin></Button>
+         </children>
+      </VBox>
+   </children>
+</VBox>

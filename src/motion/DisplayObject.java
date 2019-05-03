@@ -2,7 +2,6 @@
 
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
 
 /**
  * Parent class of all objects in Panes (Circle, Static, Force)
