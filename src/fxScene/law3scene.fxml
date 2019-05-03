@@ -24,10 +24,10 @@
                   <Font name="Comic Sans MS" size="48.0" />
                </font>
                <textFill>
-                  <RadialGradient centerX="0.39444444444444443" centerY="0.48095238095238096" radius="0.5">
+                  <RadialGradient centerX="0.5" centerY="0.9904761904761905" radius="0.5">
                      <stops>
                         <Stop color="#2b757a" />
-                        <Stop color="WHITE" offset="1.0" />
+                        <Stop color="#f50987d1" offset="1.0" />
                      </stops>
                   </RadialGradient>
                </textFill>
@@ -46,7 +46,7 @@
                <children>
                   <Label alignment="TOP_LEFT" prefHeight="24.0" prefWidth="193.0" text="I. Content:">
                      <font>
-                        <Font name="Calibri Bold" size="28.0" />
+                        <Font name="Calibri Bold" size="25.0" />
                      </font>
                      <GridPane.margin>
                         <Insets left="10.0" />
@@ -54,7 +54,7 @@
                   </Label>
                   <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="72.0" prefWidth="1528.0" text="For every action, there is an equal and opposite reaction:" wrapText="true" GridPane.columnSpan="3" GridPane.rowIndex="1">
                      <font>
-                        <Font name="Calibri" size="28.0" />
+                        <Font name="Calibri" size="25.0" />
                      </font>
                      <GridPane.margin>
                         <Insets left="10.0" />
@@ -77,6 +77,9 @@
                      </GridPane.margin>
                   </ImageView>
                </children>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
             </GridPane>
             <GridPane prefHeight="450.0" prefWidth="1200.0">
               <columnConstraints>
@@ -98,7 +101,7 @@
                               <Insets left="10.0" top="-0.0" />
                            </GridPane.margin>
                            <font>
-                              <Font name="Calibri Bold" size="28.0" />
+                              <Font name="Calibri Bold" size="25.0" />
                            </font>
                         </Label>
                      </children>
@@ -110,10 +113,10 @@
                         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="ALWAYS" />
                      </rowConstraints>
                   </GridPane>
-                  <GridPane GridPane.columnIndex="1">
+                  <GridPane prefHeight="412.0" prefWidth="487.0" GridPane.columnIndex="1">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="277.0" minWidth="10.0" prefWidth="252.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="256.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -126,42 +129,42 @@
                      <children>
                         <Label fx:id="v" alignment="CENTER" text="v = " GridPane.rowIndex="5">
                            <font>
-                              <Font size="32.0" />
+                              <Font size="24.0" />
                            </font>
                         </Label>
                         <Label fx:id="a" alignment="CENTER" text="a = " GridPane.rowIndex="4">
                            <font>
-                              <Font size="32.0" />
+                              <Font size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="f_gas" alignment="CENTER" text="F_gas = " GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label fx:id="f_gas" alignment="CENTER" prefHeight="47.0" prefWidth="97.0" text="F_gas = " GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
-                              <Font size="32.0" />
+                              <Font size="24.0" />
                            </font>
                         </Label>
                         <Label fx:id="f_rocket" alignment="CENTER" text="F_rocket = " GridPane.rowIndex="2">
                            <font>
-                              <Font size="32.0" />
+                              <Font size="24.0" />
                            </font>
                         </Label>
                         <Label fx:id="p2" alignment="CENTER" text="P2 =" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font size="32.0" />
+                              <Font size="24.0" />
                            </font>
                         </Label>
                         <Label fx:id="p1" alignment="CENTER" text="P1 =" GridPane.rowIndex="1">
                            <font>
-                              <Font size="32.0" />
+                              <Font size="24.0" />
                            </font>
                         </Label>
                         <Label fx:id="f_net" alignment="CENTER" text="Fnet =" GridPane.rowIndex="3">
                            <font>
-                              <Font size="32.0" />
+                              <Font size="24.0" />
                            </font>
                         </Label>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="53.0" prefWidth="476.0" text="STATS" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER">
                            <font>
-                              <Font name="System Bold" size="36.0" />
+                              <Font name="MS Outlook" size="36.0" />
                            </font>
                            <padding>
                               <Insets left="-80.0" />
@@ -181,7 +184,7 @@
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                      <font>
-                        <Font name="Consolas" size="24.0" />
+                        <Font name="Comic Sans MS" size="22.0" />
                      </font>
                   </Button>
                   <Button fx:id="lawThreeBurnMoreGas" alignment="CENTER" mnemonicParsing="false" onAction="#burnMoreGasBtnClick" prefHeight="50.0" prefWidth="150.0" text="MORE GAS">
@@ -189,12 +192,12 @@
                         <Insets left="200.0" top="10.0" />
                      </HBox.margin>
                      <font>
-                        <Font name="Consolas" size="24.0" />
+                        <Font name="Comic Sans MS" size="22.0" />
                      </font>
                   </Button>
                   <Button fx:id="lawThreeBurnLessGas" alignment="CENTER" mnemonicParsing="false" onAction="#burnLessGasBtnClick" prefHeight="50.0" prefWidth="150.0" text="LESS GAS">
                      <font>
-                        <Font name="Consolas" size="24.0" />
+                        <Font name="Comic Sans MS" size="22.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="200.0" top="10.0" />
@@ -210,7 +213,7 @@
          <children>
             <Button fx:id="previousLawButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#previousLaw" prefHeight="56.0" prefWidth="56.0">
                <HBox.margin>
-                  <Insets left="5.0" />
+                  <Insets left="5.0" top="5.0" />
                </HBox.margin>
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">

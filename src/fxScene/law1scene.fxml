@@ -69,7 +69,7 @@
                         <Insets />
                      </GridPane.margin>
                      <font>
-                        <Font name="Calibri Bold" size="28.0" />
+                        <Font name="Calibri Bold" size="25.0" />
                      </font>
                   </Label>
                </children>
