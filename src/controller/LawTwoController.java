@@ -59,6 +59,7 @@ public class LawTwoController extends LawSceneController {
 	protected void initPane() {
 		//change formula text: a = sum(F)/m with Sigma sign
 		lawTwoFormula.setText("a = \u03A3F / m");
+		f.setText("\u03A3F = ");
 
 		//create truck
 		truck = new Truck(lawTwoPane, new Vector2D(Utility.SIZE_UNIT, Utility.SIZE_UNIT*3), 10);
@@ -101,7 +102,7 @@ public class LawTwoController extends LawSceneController {
 		super.updatePane(elapsedSeconds);;	
 		
 		//update force, velocity, acceleration of two objects on screen
-		this.f.setText("F = " + truck.getSumForceVector());
+		this.f.setText("\u03A3F = " + truck.getSumForceVector());
 		this.v.setText("v = " + truck.getVelocity());		
 		this.a.setText("a = " + truck.getAcceleration());
 		this.m.setText("m = " + truck.getMass());

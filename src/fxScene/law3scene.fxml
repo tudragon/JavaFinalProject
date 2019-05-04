@@ -31,10 +31,10 @@
                   <Font name="Comic Sans MS" size="48.0" />
                </font>
                <textFill>
-                  <RadialGradient centerX="0.39444444444444443" centerY="0.48095238095238096" radius="0.5">
+                  <RadialGradient centerX="0.39444444444444443" centerY="0.4858067498844198" radius="0.5">
                      <stops>
                         <Stop color="#2b757a" />
-                        <Stop color="WHITE" offset="1.0" />
+                        <Stop color="#9ab3cd" offset="1.0" />
                      </stops>
                   </RadialGradient>
                </textFill>

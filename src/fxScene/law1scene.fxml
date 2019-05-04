@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -15,7 +22,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LawOneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LawOneController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="768.0" prefWidth="1366.0">
          <children>
@@ -112,7 +119,31 @@
                   </AnchorPane>
                 <AnchorPane fx:id="lawOneFirstPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
                   <AnchorPane fx:id="lawOneSecondPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" GridPane.rowIndex="1" />
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <VBox layoutX="8.0" prefHeight="90.0" prefWidth="235.0">
+                           <children>
+                              <Label fx:id="f2" text="F =">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="v2" text="v = ">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="a2" text="a = ">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children></AnchorPane>
                </children>
                <padding>
                   <Insets top="10.0" />
@@ -142,27 +173,5 @@
             </Button>
          </children>
       </HBox>
-      <VBox layoutX="1066.0" layoutY="710.0" prefHeight="90.0" prefWidth="235.0">
-         <children>
-            <Label fx:id="f2" text="F =">
-               <font>
-                  <Font size="36.0" />
-               </font>
-            </Label>
-            <Label fx:id="v2" text="v = ">
-               <font>
-                  <Font size="36.0" />
-               </font>
-            </Label>
-            <Label fx:id="a2" text="a = ">
-               <font>
-                  <Font size="36.0" />
-               </font>
-            </Label>
-         </children>
-         <padding>
-            <Insets top="10.0" />
-         </padding>
-      </VBox>
    </children>
 </AnchorPane>

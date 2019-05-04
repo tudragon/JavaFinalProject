@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -15,7 +22,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LawTwoController">
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LawTwoController">
    <children>
       <VBox prefHeight="768.0" prefWidth="1366.0">
          <children>
@@ -55,7 +62,7 @@
                   </Label>
                   <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="135.0" prefWidth="1091.0" stylesheets="@../../../../_DataLab/law2scene.css" text="The acceleration of an object as produced by a net force is directly proportional to the magnitude of the net force, in the same direction as the net force, and inversely proportional to the mass of the object." wrapText="true" GridPane.columnSpan="3" GridPane.rowIndex="1">
                      <font>
-                        <Font name="Calibri Bold" size="28.0" />
+                        <Font name="Calibri Bold" size="24.0" />
                      </font>
                      <GridPane.margin>
                         <Insets left="10.0" />
